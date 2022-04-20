@@ -1,16 +1,12 @@
-#container {
-    max-width: 800px;
+#logo {
+    margin: 0px;
+    padding: 0px;
+    align-items: flex-start;
 }
 
 
 
-h2 {
-    color: #c62b42;
-    font-family: fantasy;
-    text-align: left;
-    text-shadow: 1px 1px 5px black;
 
-}
 
 ul li {
     float: left;
