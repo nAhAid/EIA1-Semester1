@@ -1,0 +1,45 @@
+header {
+    color: white;
+    background-color: #1f799c;
+    height: 60px;
+    margin: none;
+    padding: 30px;
+
+}
+
+.ListeHeader {
+    list-style-type: none;
+
+    
+
+}
+nav ul li{
+    float: left
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    text-transform: uppercase;
+    
+}
+
+main {
+    background-color: #3b4e72;
+    color: white;
+    text-align: center;
+    padding: 100px 40px 100px 40px;
+    
+}
+p{
+    text-align: center;
+    
+}
+
+footer {
+    background-color: #341664;
+    color: white;
+    padding: 20px 10px 20px 10px;
+}
