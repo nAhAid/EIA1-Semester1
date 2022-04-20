@@ -23,6 +23,7 @@ a{
 }
 .Nav {
     background-color: #c62b427b;
+    font-size: 30px;
   
 
 }
@@ -52,6 +53,15 @@ main {
     color: white;
 }
 
+h3{
+    font-size: 30px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
 .bilder{
     z-index: 10px; 
     max-height: 200px;
@@ -61,5 +71,9 @@ main {
 
 footer {
     background-color: #eaeaea;
-    height: 50px;
+
+}
+
+.footer_list {
+    list-style-type: lower-alpha;
 }
