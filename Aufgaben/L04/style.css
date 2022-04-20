@@ -52,6 +52,13 @@ main {
     color: white;
 }
 
+.bilder{
+    z-index: 10px; 
+    max-height: 300px;
+    float: none;
+}
+
+
 footer {
     background-color: #eaeaea;
 }
