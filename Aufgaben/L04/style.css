@@ -51,10 +51,27 @@ footer section {
 #footer {
     color: rgb(0, 0, 0);
     background-color: #eaeaea;
+    padding: 0px;
 }
+
+footer section div p {
+    line-height: 0.5;
+    font-size: 14px;
+}
+
 main {
     background-color: rgb(141, 140, 140);
 }
+
+#steckbrief_bild {
+   float: right;
+   position: relative;
+   bottom: 55px;
+   border: px solid #73AD21;
+
+}
+
+
 h3 {
     color: #c62b42;
     text-shadow: 1px 1px 1px #eaeaea;
