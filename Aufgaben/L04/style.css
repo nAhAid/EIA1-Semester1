@@ -95,3 +95,12 @@ form {
     display:grid;
     grid-template-columns: auto auto;
 }
+
+.bilder {
+    
+}
+
+.email {
+    color: #c62b42;
+    text-shadow: 1px 1px 3px #eaeaea;
+}
