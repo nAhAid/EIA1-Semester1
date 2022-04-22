@@ -6,8 +6,8 @@ html, body {
 header {
     background-image: url("Assets/Bild.jpg");
     height: 400px;
-    object-fit: cover;
-    object-position: 15% 90%;
+    background-position-x: 70%;
+    background-position-y: 45%;
 }
 
 header, main, footer {
@@ -31,7 +31,7 @@ ul li {
 }
 
 .Nav {
-    background-color: #c62b42b4;
+    background-image: linear-gradient(#c62b42, rgb(0, 0, 0));
     font-size: 30px;
     color: grey;
     margin: 5px;
@@ -66,8 +66,8 @@ main {
 #steckbrief_bild {
    float: right;
    position: relative;
-   bottom: 55px;
-   border: px solid #73AD21;
+   bottom: 65px;
+   border: none;
 
 }
 
@@ -98,7 +98,7 @@ form {
 
 .bilder img {
     width: 300px;
-    justify-content: center;
+  
     
 }
 
