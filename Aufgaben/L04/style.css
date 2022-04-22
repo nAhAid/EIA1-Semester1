@@ -31,11 +31,11 @@ ul li {
 }
 
 .Nav {
-    background-color: #c62b42;
+    background-color: #c62b42b4;
     font-size: 30px;
     color: grey;
     margin: 5px;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
 }
 
@@ -96,8 +96,23 @@ form {
     grid-template-columns: auto auto;
 }
 
-.bilder {
+.bilder img {
+    width: 300px;
+    justify-content: center;
     
+}
+
+.videos video {
+    width: 560px;
+}
+
+.pictures p {
+    font-size: 20px;
+}
+
+.videos p {
+    font-size: 20px;
+
 }
 
 .email {
