@@ -119,3 +119,8 @@ form {
     color: #c62b42;
     text-shadow: 1px 1px 3px #eaeaea;
 }
+
+.kontakt p {
+    line-height: 0.4;
+    font-size: 16px;
+}
