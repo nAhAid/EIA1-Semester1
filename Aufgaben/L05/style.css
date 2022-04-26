@@ -4,32 +4,43 @@ html, body {
 }
 
 header {
-    animation-duration: 6s;
-    animation-name: slideshow;
-    animation-delay: 1s;
-    animation-direction: normal;
+    animation: slideshow  20s linear infinite ;
+    animation-fill-mode: forwards;
+    height: 400px;
+    background-position-x: 70%;
+    background-position-y: 45%;
 }
 
 @keyframes slideshow {
-    25% {
+    0% {
         background-image: url("../L04/Assets/Bild.jpg");
-        height: 400px;
-        background-position-x: 70%;
-        background-position-y: 45%;
-        opacity: 100%;}
         
-    25% {
-        opacity: 10%;
-        background-image: url("../L04/Assets/Bild.jpg");
-        height: 400px;
-        background-position-x: 70%;
-        background-position-y: 45%;
     }
-
+    
     25% {
-        opacity: 100%;
-        background-image: url("../L04/Assets/Portraet_hintergrund.jpg");
-        height: 400px;
+        background-image: url("Assets/Bild2.jpg");
+        background-position-x: 70%;
+        background-position-y: 50%;
+    
+    }
+    50% {
+        background-image: url("Assets/Bild1.jpg");
+        background-position-x: 70%;
+        background-position-y: 55%;
+        
+    
+    }
+    75% {
+        background-image: url("Assets/Bild3.jpg");
+        background-position-x: 70%;
+        background-position-y: 60%;
+    
+    }
+    100% {
+        background-image: url("Assets/Bild4.jpg");
+        background-position-x: 70%;
+        background-position-y: 65%;
+     
     
     }
    
