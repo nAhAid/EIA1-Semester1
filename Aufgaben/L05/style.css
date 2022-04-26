@@ -4,10 +4,35 @@ html, body {
 }
 
 header {
-    background-image: url("../L04/Assets/Bild.jpg");
-    height: 400px;
-    background-position-x: 70%;
-    background-position-y: 45%;
+    animation-duration: 6s;
+    animation-name: slideshow;
+    animation-delay: 1s;
+    animation-direction: normal;
+}
+
+@keyframes slideshow {
+    25% {
+        background-image: url("../L04/Assets/Bild.jpg");
+        height: 400px;
+        background-position-x: 70%;
+        background-position-y: 45%;
+        opacity: 100%;}
+        
+    25% {
+        opacity: 10%;
+        background-image: url("../L04/Assets/Bild.jpg");
+        height: 400px;
+        background-position-x: 70%;
+        background-position-y: 45%;
+    }
+
+    25% {
+        opacity: 100%;
+        background-image: url("../L04/Assets/Portraet_hintergrund.jpg");
+        height: 400px;
+    
+    }
+   
 }
 
 header, main, footer {
