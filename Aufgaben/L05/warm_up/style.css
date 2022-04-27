@@ -14,8 +14,9 @@ body {
     top: 100px;
     margin: auto;
     display: flex;
-   justify-content: center;
-   color: black;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
 
 .element-top-left {
@@ -47,6 +48,5 @@ body {
 
 .element-center {
    position: relative;
-   top: 50%;
    
 }
