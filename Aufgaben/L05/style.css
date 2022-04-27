@@ -140,7 +140,13 @@ form {
 
 .bilder img {
     width: 50%;
+    z-index: 0;
     
+}
+
+.bilder img:hover {
+    scale: 1.05;
+    z-index: 1;
 }
 
 
