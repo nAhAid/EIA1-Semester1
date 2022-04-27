@@ -84,7 +84,7 @@ footer section {
     display: grid;
     grid-template-columns: auto auto auto;
 }
-#footer {
+footer {
     color: rgb(0, 0, 0);
     background-color: #eaeaea;
     padding: 0px;
@@ -223,5 +223,15 @@ h5 {
     top: 0px;
     right: 0px;
     z-index: 1;
+
+}
+
+#social_footer img {
+    opacity: 50%;
+}
+
+#social_footer img:hover {
+    opacity: 100%;
+   
 
 }
