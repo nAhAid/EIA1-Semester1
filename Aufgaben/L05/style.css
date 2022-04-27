@@ -159,6 +159,9 @@ form {
     z-index: 1;
 }
 
+.youtube, .schmied  {
+    margin-bottom: 10px;
+}
 
 .videos video {
     width: 100%;
