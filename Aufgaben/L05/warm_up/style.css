@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    justify-content: center;
+    color: white;
+}
+
+.page-wrapper {
+    position: absolute;
+    background-color: white;
+    width: 800px;
+    height: 400px;
+    top: 100px;
+    margin: auto;
+    display: flex;
+   justify-content: center;
+   color: black;
+}
+
+.element-top-left {
+    position: inherit;
+    top: 0;
+    left: 0;
+}
+
+.element-top-right {
+    display: block;
+    position: inherit;
+    top: 0;
+    right: 0px;
+}
+
+.element-bottom-left {
+    display: block;
+    position: inherit;
+    bottom: 0;
+    left: 0px;
+}
+
+.element-bottom-right {
+    display: block;
+    position: inherit;
+    bottom: 0;
+    right: 0px;
+}
+
+.element-center {
+   position: relative;
+   top: 50%;
+   
+}
