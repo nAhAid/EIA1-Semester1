@@ -162,7 +162,9 @@ form {
 
 
 .bilder img:hover {
-    scale: 1.05;
+    opacity: 1;
+    transition: 0.2s;
+    transform:scale(1.1);
     z-index: 1;
 }
 
