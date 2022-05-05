@@ -29,7 +29,7 @@ var de_internetnutzer_2021 : number = de_einwohner_gesamt*de_internetnutzer_rel;
     var de_einwohner_anteil_eu : number = de_einwohner_gesamt/eu_einwohner_gesamt;
     var de_internetnutzer_anteil : number = de_einwohner_gesamt*de_internetnutzer_rel;
     var de_aenderung_internetnutzer : number = de_internetnutzer_2021-de_internetnutzer_2005;
-    /*Rechnung überprüfen!! */
+    /*Rechnung */
     var de_aenderung_internetnutzer_prozentual : number = de_internetnutzer_2005/de_internetnutzer_2021*100;
 
 
