@@ -20,8 +20,8 @@ var quelle_de_internetnutzer_2005_rel = "https://de.statista.com/statistik/daten
 console.log("Anteil der Internetnutzer in Deutschland im Jahr 2005: " + de_einwohner_ges_2005 * de_internetnutzer_2005_rel + " %");
 var de_internetnutzer_2005 = de_einwohner_ges_2005 * de_internetnutzer_2005_rel;
 var de_internetnutzer_2021 = de_einwohner_gesamt * de_internetnutzer_rel;
-console.log("2005: ", +de_internetnutzer_2005);
-console.log("2021: ", +de_internetnutzer_2021);
+console.log("Internetnutzer im Jahr 2005: ", +de_internetnutzer_2005);
+console.log("Internetnutzer im Jahr 2021: ", +de_internetnutzer_2021);
 //Subtraktion funktioniert nicht wie es soll...//
 console.log("Anteiländerung der Internetnutzer von 2005 zu 2021: ", de_internetnutzer_2021 - de_internetnutzer_2005);
 var fr_einwohner_gesamt = 65120000;

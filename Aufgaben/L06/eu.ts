@@ -25,8 +25,8 @@ var de_internetnutzer_2005_rel : number =0.71;
 console.log("Anteil der Internetnutzer in Deutschland im Jahr 2005: " + de_einwohner_ges_2005*de_internetnutzer_2005_rel + " %")
 var de_internetnutzer_2005 : number = de_einwohner_ges_2005*de_internetnutzer_2005_rel;
 var de_internetnutzer_2021 : number = de_einwohner_gesamt*de_internetnutzer_rel;
-console.log("2005: ", + de_internetnutzer_2005);
-console.log("2021: ", + de_internetnutzer_2021);
+console.log("Internetnutzer im Jahr 2005: ", + de_internetnutzer_2005);
+console.log("Internetnutzer im Jahr 2021: ", + de_internetnutzer_2021);
 //Subtraktion funktioniert nicht wie es soll...//
 console.log("Anteiländerung der Internetnutzer von 2005 zu 2021: ", de_internetnutzer_2021-de_internetnutzer_2005)
 
