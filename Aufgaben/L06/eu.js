@@ -19,7 +19,7 @@ var quelle_fr_internetnutzer_rel = "https://de.statista.com/statistik/daten/stud
 console.log("Anteil der Internetnutzer in Frankreich im Jahr 2021: " + fr_einwohner_gesamt * fr_internetnutzer_rel);
 var sp_einwohner_gesamt = 47110000;
 var quelle_sp_einwohner_gesamt = "https://de.statista.com/statistik/daten/studie/19315/umfrage/gesamtbevoelkerung-in-spanien/" + " Stand 2020";
-console.log("Spanien Einwohneranteil an der EU im Jahr 2021: " + sp_einwohner_gesamt / eu_einwohner_gesamt * 100 + " %");
+console.log(`Spanien Einwohneranteil an der EU im Jahr 2021: ${sp_einwohner_gesamt / eu_einwohner_gesamt * 100} %`);
 var sp_internetnutzer_rel = 0.94;
 var quelle_sp_internetnutzer_rel = "https://de.statista.com/statistik/daten/studie/184636/umfrage/internetreichweite-anteil-der-nutzer-in-europa/";
 console.log("Anteil der Internetnutzer in Spanien im Jahr 2021: " + sp_einwohner_gesamt * sp_internetnutzer_rel);
