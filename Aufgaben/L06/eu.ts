@@ -1,19 +1,33 @@
 var eu_einwohner_gesamt : number = 447010000;
     var quelle_eu_einwohner_gesamt : string = "https://de.statista.com/themen/2332/bevoelkerung-in-eu-und-euro-zone/#dossierKeyfigures";
 
+var eu_einwohner_ges_2005 : number = 434420000;
+    var quelle_eu_einwohner_ges_2005 : string = "https://de.statista.com/download/MTY1MTc2ODkyMCMjNDQzMTQjIzI0NzU2IyMxIyNwZGYjI1N0dWR5";
+
+
 var eu_internetnutzer_rel : number = 0.882;
-    var quelle_eu_internetnuter_rel : string = "https://de.statista.com/themen/3118/internetnutzung-in-europa/"
+    var quelle_eu_internetnuter_rel : string = "https://de.statista.com/themen/3118/internetnutzung-in-europa/";
 var eu_internetnutzer_fest : number = eu_einwohner_gesamt*eu_internetnutzer_rel;
 console.log("Internetnutzer in der EU im Jahr 2021: " + eu_internetnutzer_fest);
-console.log("Internetnutzer in der EU relativ zu Gesamtbevölkerung im Jahr 2021: " + eu_internetnutzer_rel*100 + " %")
+console.log("Internetnutzer in der EU relativ zu Gesamtbevölkerung im Jahr 2021: " + eu_internetnutzer_rel*100 + " %");
 
 var de_einwohner_gesamt : number = 83140000;
     var quelle_de_einwohner_gesamt : string = "https://de.statista.com/themen/2332/bevoelkerung-in-eu-und-euro-zone/#dossierKeyfigures";
 console.log("Deutschland Einwohneranteil an der EU im Jahr 2021: " + de_einwohner_gesamt/eu_einwohner_gesamt*100 +" %");
+var de_einwohner_ges_2005 : number = 824400000;
+    var quelle_de_einwohner_ges_2005 : string = "https://de.statista.com/statistik/daten/studie/2861/umfrage/entwicklung-der-gesamtbevoelkerung-deutschlands/";
 
 var de_internetnutzer_rel : number = 0.92;
     var quelle_de_internetnutzer_rel : string = "https://de.statista.com/statistik/daten/studie/184636/umfrage/internetreichweite-anteil-der-nutzer-in-europa/";
 console.log("Anteil der Internetnutzer in Deutschland im Jahr 2021: " + de_einwohner_gesamt*de_internetnutzer_rel);
+var de_internetnutzer_2005_rel : number =0.71;
+    var quelle_de_internetnutzer_2005_rel : string = "https://de.statista.com/statistik/daten/studie/71009/umfrage/anteil-der-offliner-in-europa/";
+console.log("Anteil der Internetnutzer in Deutschland im Jahr 2005: " + de_einwohner_ges_2005*de_internetnutzer_2005_rel + " %")
+var de_internetnutzer_2005 : number = de_einwohner_ges_2005*de_internetnutzer_2005_rel;
+var de_internetnutzer_2021 : number = de_einwohner_gesamt*de_internetnutzer_rel;
+console.log("2005: ", + de_internetnutzer_2005);
+console.log("2021: ", + de_internetnutzer_2021);
+console.log("Anteiländerung der Internetnutzer von 2005 zu 2021: ", de_internetnutzer_2021-de_internetnutzer_2005)
 
 
 var fr_einwohner_gesamt : number = 65120000;
