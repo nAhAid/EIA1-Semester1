@@ -46,10 +46,10 @@ var fr_internetnutzer_rel : number = 0.93;
     var quelle_fr_internetnutzer_rel : string = "https://de.statista.com/statistik/daten/studie/184636/umfrage/internetreichweite-anteil-der-nutzer-in-europa/";
 
 var fr_einwohner_2005 : number = 60960000;
-    var quelle_fr_einwohner_2005 : string = "https://de.statista.com/statistik/daten/studie/19298/umfrage/gesamtbevoelkerung-in-frankreich/"
+    var quelle_fr_einwohner_2005 : string = "https://de.statista.com/statistik/daten/studie/19298/umfrage/gesamtbevoelkerung-in-frankreich/";
 
 var fr_internetnutzer_rel_2005 : number = 1;
-    var quelle_fri_internetnutzer_rel_2005 : string = "https://de.statista.com/statistik/daten/studie/71009/umfrage/anteil-der-offliner-in-europa/"
+    var quelle_fri_internetnutzer_rel_2005 : string = "https://de.statista.com/statistik/daten/studie/71009/umfrage/anteil-der-offliner-in-europa/";
 
 /* Rechnung Frankreich */
     var fr_einwohner_anteil_eu : number = fr_einwohner_gesamt/eu_einwohner_gesamt*100;
@@ -59,6 +59,25 @@ var fr_internetnutzer_rel_2005 : number = 1;
     var fr_aenderung_internetnutzer_prozentual : number = fr_internetnutzer_2021/fr_internetnutzer_2005*100;
 
 
+/* Daten Italien */
+var it_einwohner_gesamt : number = 59580000;
+    var quelle_it_einwohner_gesamt : string = "https://de.statista.com/statistik/daten/studie/19304/umfrage/gesamtbevoelkerung-in-italien/";
+
+var it_einwohner_2005 : number = 58040000;
+    var quelle_it_einwohner_2005 : string = "https://de.statista.com/statistik/daten/studie/19304/umfrage/gesamtbevoelkerung-in-italien/";
+
+var it_internetnutzer_rel : number = 0.81;
+    var quelle_it_internetnutzer_rel : string = "https://de.statista.com/statistik/daten/studie/319345/umfrage/anteil-der-internetnutzer-in-italien/";
+
+var it_internetnutzer_rel_2005 : number = 0.38;
+    var quelle_it_internetnutzer_rel_2005 : string = "https://de.statista.com/statistik/daten/studie/71009/umfrage/anteil-der-offliner-in-europa/";     
+
+/* Rechnung Italien */
+    var it_einwohner_anteil_eu : number = it_einwohner_gesamt/eu_einwohner_gesamt*100;
+    var it_internetnutzer_2021 : number = it_einwohner_gesamt*it_internetnutzer_rel;
+    var it_internetnutzer_2005 : number = it_einwohner_2005*it_internetnutzer_rel_2005;
+    var it_aenderung_internetnutzer: number = it_internetnutzer_2021-it_internetnutzer_2005;
+    var it_aenderung_internetnutzer_prozentual : number = it_internetnutzer_2021/it_internetnutzer_2005*100;
 
 /* Daten Spanien */    
 var sp_einwohner_gesamt : number = 47110000;
@@ -84,10 +103,12 @@ var sp_internetnutzer_rel_2005 : number = 0.5;
 
 
 /*EU Ausgabe */    
+console.log("EU:")
 console.log("Internetnutzer in der EU im Jahr 2021: ", Number(eu_internetnutzer_fest .toFixed(2)).toLocaleString());
 console.log("Internetnutzer in der EU relativ zu Gesamtbevölkerung im Jahr 2021: ", + eu_internetnutzer_rel*100, "%");
 
 /*Deutschland Ausgabe */
+console.log("Deutschland:");
 console.log("Deutschland Einwohneranteil an der EU im Jahr 2021: ", + de_einwohner_anteil_eu .toFixed(2), "%");
 console.log("Internetnutzer in Deutschland im Jahr 2021: ", Number(de_internetnutzer_2021 .toFixed(2)).toLocaleString());
 console.log("Internetnutzer in Deutschland im Jahr 2005: ", Number(de_internetnutzer_2005 .toFixed(2)).toLocaleString());
@@ -95,13 +116,24 @@ console.log("Neue Internetnutzer von 2005 zu 2021: ",  Number(de_aenderung_inter
 console.log("Internetnutzerzuwachs in Prozent: ", de_aenderung_internetnutzer_prozentual.toFixed(2) + "%");
 
 /*Frankreich Ausgabe */
+console.log("Frankreich:")
 console.log("Frankreich Einwohneranteil an der EU im Jahr 2021: ", + fr_einwohner_anteil_eu.toFixed(2) +"%");
 console.log("Anteil der Internetnutzer in Frankreich im Jahr 2021: ",  Number(fr_internetnutzer_2021.toFixed(2)) .toLocaleString());
 console.log("Internetnutzer in Frankreich im Jahr 2021: ", fr_internetnutzer_rel*100 +"%");
 console.log("Neue Internetnutzer von 2005 zu 2021: ", Number(fr_aenderung_internetnutzer .toFixed(2)).toLocaleString());
 console.log("Internetnutzerzuwachs in Prozent: ", fr_aenderung_internetnutzer_prozentual.toFixed(2) +"%");
 
+/*Italien Ausgabe */
+console.log("Italien:")
+console.log("Italien Einwohneranteil an der EU im Jahr 2021: ", + it_einwohner_anteil_eu.toFixed(2) +"%");
+console.log("Anteil der Internetnutzer in Italien im Jahr 2021: ",  Number(it_internetnutzer_2021.toFixed(2)) .toLocaleString());
+console.log("Internetnutzer in Italien im Jahr 2021: ", it_internetnutzer_rel*100 +"%");
+console.log("Neue Internetnutzer von 2005 zu 2021: ", Number(it_aenderung_internetnutzer .toFixed(2)).toLocaleString());
+console.log("Internetnutzerzuwachs in Prozent: ",it_aenderung_internetnutzer_prozentual.toFixed(2) +"%");
+
+
 /*Spanien Ausgabe */
+console.log("Spanien:")
 console.log("Spanien Einwohneranteil an der EU im Jahr 2021: ", + sp_einwohner_anteil_eu.toFixed(2) +"%");
 console.log("Anteil der Internetnutzer in Spanien im Jahr 2021: ",  Number(sp_internetnutzer_2021.toFixed(2)) .toLocaleString());
 console.log("Internetnutzer in Spanien im Jahr 2021: ", sp_internetnutzer_rel*100 +"%");
