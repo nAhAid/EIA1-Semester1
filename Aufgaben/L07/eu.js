@@ -46,31 +46,6 @@ var it_internetnutzer_rel = 0.81;
 /* Quelle: https://de.statista.com/statistik/daten/studie/319345/umfrage/anteil-der-internetnutzer-in-italien/ */
 var it_internetnutzer_rel_2005 = 0.38;
 /* Quelle: https://de.statista.com/statistik/daten/studie/71009/umfrage/anteil-der-offliner-in-europa/" */
-/* Rechnungen Deutschland*/
-var de_internetnutzer_2005 = de_einwohner_ges_2005 * de_internetnutzer_2005_rel; /*58.532.400 */
-var de_internetnutzer_2021 = de_einwohner_gesamt * de_internetnutzer_rel; /*76.488.800 */
-/*Änderung: 17.956.400 */
-var de_einwohner_anteil_eu = de_einwohner_gesamt / eu_einwohner_gesamt * 100;
-var de_aenderung_internetnutzer = de_internetnutzer_2021 - de_internetnutzer_2005;
-var de_aenderung_internetnutzer_prozentual = de_internetnutzer_2021 / de_internetnutzer_2005 * 100;
-/* Rechnung Frankreich */
-var fr_einwohner_anteil_eu = fr_einwohner_gesamt / eu_einwohner_gesamt * 100;
-var fr_internetnutzer_2021 = fr_einwohner_gesamt * fr_internetnutzer_rel;
-var fr_internetnutzer_2005 = fr_einwohner_2005 * fr_internetnutzer_rel_2005;
-var fr_aenderung_internetnutzer = fr_internetnutzer_2021 - fr_internetnutzer_2005;
-var fr_aenderung_internetnutzer_prozentual = fr_internetnutzer_2021 / fr_internetnutzer_2005 * 100;
-/* Rechnung Italien */
-var it_einwohner_anteil_eu = it_einwohner_gesamt / eu_einwohner_gesamt * 100;
-var it_internetnutzer_2021 = it_einwohner_gesamt * it_internetnutzer_rel;
-var it_internetnutzer_2005 = it_einwohner_2005 * it_internetnutzer_rel_2005;
-var it_aenderung_internetnutzer = it_internetnutzer_2021 - it_internetnutzer_2005;
-var it_aenderung_internetnutzer_prozentual = it_internetnutzer_2021 / it_internetnutzer_2005 * 100;
-/* Rechnung Spanien */
-var sp_einwohner_anteil_eu = sp_einwohner_gesamt / eu_einwohner_gesamt * 100;
-var sp_internetnutzer_2021 = sp_einwohner_gesamt * fr_internetnutzer_rel;
-var sp_internetnutzer_2005 = sp_einwohner_2005 * sp_internetnutzer_rel_2005;
-var sp_aenderung_internetnutzer = sp_internetnutzer_2021 - sp_internetnutzer_2005;
-var sp_aenderung_internetnutzer_prozentual = sp_internetnutzer_2021 / sp_internetnutzer_2005 * 100;
 function ausgabe(land, einwohner, nutzer_re, einwohner_05, nutzer_rel_05) {
     var ausgabe_land = land;
     var einwohner_land = einwohner;
