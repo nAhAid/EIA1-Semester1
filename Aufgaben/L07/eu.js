@@ -54,11 +54,11 @@ function ausgabe(land, einwohner, nutzer_re, einwohner_05, nutzer_rel_05) {
     var internetnutzer_2005 = einwohner_05 * nutzer_rel_05;
     var aenderung_internetnutzer = internetnutzer_2021 - internetnutzer_2005;
     var aenderung_internetnutzer_prozentual = internetnutzer_2021 / internetnutzer_2005 * 100;
-    document.querySelector('#einwohner').innerHTML = (einwohner_land.toFixed(2)) + "Mio.";
+    document.querySelector('#einwohner').innerHTML = (einwohner_land.toFixed(2)) + " Mio.";
     document.querySelector('#land').innerHTML = ausgabe_land;
-    document.querySelector('#relativ').innerHTML = (einwohner_anteil_eu.toFixed(2)).toLocaleString();
-    document.querySelector('#nutzer').innerHTML = (internetnutzer_2021.toFixed(2));
-    document.querySelector('#wachstum').innerHTML = (aenderung_internetnutzer.toFixed(2));
+    document.querySelector('#relativ').innerHTML = (einwohner_anteil_eu.toFixed(2)).toLocaleString() + "%";
+    document.querySelector('#nutzer').innerHTML = (internetnutzer_2021.toFixed(2)) + " Mio.";
+    document.querySelector('#wachstum').innerHTML = (aenderung_internetnutzer.toFixed(2)) + " Mio.";
 }
 document.querySelector('#deutschland').addEventListener('click', function () {
     ausgabe(deutschland, de_einwohner_gesamt, de_internetnutzer_rel, de_einwohner_ges_2005, de_internetnutzer_2005_rel);
