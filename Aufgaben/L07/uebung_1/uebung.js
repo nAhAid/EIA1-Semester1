@@ -4,8 +4,8 @@ function popup() {
 document.querySelector('#button1').addEventListener('click', popup);
 function counter() {
     document.querySelector('#result');
-    this.zahl = this.zahl + 1;
-    document.querySelector("#result").innerHTML = result;
+    zahl = zahl + 1;
+    document.querySelector("#result").innerHTML = String(zahl);
 }
 var zahl = 0;
 var result = "1";
