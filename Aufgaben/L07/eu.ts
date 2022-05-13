@@ -40,7 +40,6 @@ let italien_objekt = {
 
 };
 
-
 document.querySelector('#deutschland').addEventListener('click', function () {
     ausgabe(deutschland_objekt)
 });
