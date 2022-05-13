@@ -6,6 +6,13 @@ var eu_einwohner_ges_2005 = 434420000;
 var eu_internetnutzer_rel = 0.882;
 /** Quelle:  https://de.statista.com/themen/3118/internetnutzung-in-europa/ */
 var eu_internetnutzer_fest = eu_einwohner_gesamt * eu_internetnutzer_rel;
+let eu_objekt = {
+    name: "EU",
+    einwohner_ges: 447010000,
+    einwohner_05: 434420000,
+    anteil_internetnutzer: 0.882,
+    anteil_internetnutzer_05: 0.23
+};
 let deutschland_objekt = {
     name: "Deutschland",
     einwohner_ges: 83140000,
@@ -45,6 +52,9 @@ document.querySelector('#spanien').addEventListener('click', function () {
 });
 document.querySelector('#italien').addEventListener('click', () => {
     ausgabe(italien_objekt);
+});
+document.querySelector('.chartStarWrapper').addEventListener('click', () => {
+    ausgabe(eu_objekt);
 });
 function ausgabe(land) {
     var ausgabe_land = land.name;

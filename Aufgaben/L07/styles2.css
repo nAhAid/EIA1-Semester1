@@ -26,6 +26,11 @@ body {
     width: 150px;
 }
 
+.stars:hover{
+  transform: scale(1.1);
+  opacity: 1;
+}
+
 nav {
     margin: 60px;
     margin-bottom: 10px;
@@ -55,6 +60,6 @@ footer p {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 75%;
+    height: 14.56%;
     background: #ffcc00;
 }
