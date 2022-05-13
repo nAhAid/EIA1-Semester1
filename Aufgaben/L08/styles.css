@@ -6,7 +6,7 @@ body {
 }
 
 #keyboard {
-    background-color: white;
+    background-color: #808080;
     width: 700px;
     height: 450px;
     display: flex;
@@ -14,7 +14,10 @@ body {
 
 .wtaste {
     width: 100px;
-    border-width: 1px;
+    border-width: 2px;
     border-color: black;
-    border-style: solid;
+    border-style: double;
+    border-radius: 10px;
+    color: white;
+    background-color: white;
 }
