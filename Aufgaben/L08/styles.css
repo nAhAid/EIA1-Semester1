@@ -21,3 +21,10 @@ body {
     color: white;
     background-color: white;
 }
+
+.staste {
+    width: 50px;
+    background-color: black;
+    color:white;
+    z-index: 1;
+}
