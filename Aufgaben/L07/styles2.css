@@ -62,5 +62,5 @@ footer p {
     width: 100%;
     height: 14.56%;
     background: #ffcc00;
-    transition: height 1s ease-in-out, ease-in-out;
+    transition: height 1s ease-in-out;
 }
