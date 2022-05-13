@@ -1,0 +1,20 @@
+body {
+    background-color: #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#keyboard {
+    background-color: white;
+    width: 700px;
+    height: 450px;
+    display: flex;
+}
+
+.wtaste {
+    width: 100px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
