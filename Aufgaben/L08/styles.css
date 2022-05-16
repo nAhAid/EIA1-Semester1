@@ -27,4 +27,13 @@ body {
     background-color: black;
     color:white;
     z-index: 1;
+    height: 250px;
+    width: 50px;
+    border-width: 2px;
+    border-color: black;
+    border-style: double;
+    border-radius: 10px;
+    color: transparent;
+    position: absolute;
+  
 }
