@@ -20,7 +20,11 @@ body {
     border-radius: 10px;
     color: white;
     background-color: white;
+    z-index: 0;
+    
 }
+
+
 
 .staste {
     width: 50px;
@@ -34,6 +38,9 @@ body {
     border-style: double;
     border-radius: 10px;
     color: transparent;
-    position: absolute;
+    position: relative;
+    display: inline-flex;
+ 
+   
   
 }
