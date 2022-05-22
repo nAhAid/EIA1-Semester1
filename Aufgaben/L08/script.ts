@@ -23,9 +23,51 @@ function playSample(sound_list: HTMLAudioElement[]) {
         }
         sound_list[currentindex].play();
         currentindex += 1 //oder "++" => erhöt index um 1
-        console.log(currentindex)
+        console.log(currentindex);
     }, 3000)
 
+}
+function keyboard(keyboardEvent: KeyboardEvent) {
+    console.log(keyboardEvent.key)
+    if (keyboardEvent.key === '1') {
+        sound.c.play();
+    }
+    else if (keyboardEvent.key === '2') {
+        sound.d.play();
+    }
+    else if (keyboardEvent.key === '3') {
+        sound.e.play();
+    }
+    else if (keyboardEvent.key === '4') {
+        sound.f.play();
+    }
+    else if (keyboardEvent.key === '5') {
+        sound.g.play();
+    }
+    else if (keyboardEvent.key === '6') {
+        sound.a.play();
+    }
+    else if (keyboardEvent.key === '7') {
+        sound.b.play();
+    }
+    else if (keyboardEvent.key === 'q') {
+        sound.df.play();
+    }
+    else if (keyboardEvent.key === 'w') {
+        sound.ef.play();
+    }
+    else if (keyboardEvent.key === 'e') {
+        sound.gf.play();
+    }
+    else if (keyboardEvent.key === 'r') {
+        sound.af.play();
+    }
+    else if (keyboardEvent.key === 't') {
+        sound.bf.play();
+    }
+    else {
+        console.log("Unbekannte Taste");
+    }
 }
 
 
@@ -47,5 +89,7 @@ document.querySelector('#play').addEventListener('click', () => {
     playSample([sound.c, sound.d, sound.e, sound.f, sound.g, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.f, sound.f, sound.f, sound.f, sound.e, sound.e, sound.d, sound.d, sound.d, sound.d, sound.c])
 });
 
-document.querySelector('#staste1').addEventListener('keydown.1', () => { playSample([sound.c]) });
-document.getElementById('#taste1').addEventListener('keypress', (keypress: KeyboardEvent) => { playSample([sound.c]) });
+addEventListener('keypress', (e: KeyboardEvent) => { keyboard(e) });
+//addEventListener('keypress', (keypress: KeyboardEvent) => { playSample([sound.c]) });
+//addEventListener('keypress', (keypress: KeyboardEvent) => { playSample([sound.d]) });
+
