@@ -9,9 +9,9 @@ function list() {
         list2();
         counter = counter + 1;
     }
-    else if (counter > 0) {
+    else {
+        console.log(counter);
     }
-    console.log(counter);
 }
 function list2() {
     for (let index = 0; index < names.length; index++) {

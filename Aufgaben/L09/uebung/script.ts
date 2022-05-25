@@ -16,10 +16,10 @@ function list() {
         counter = counter+1;
       
     }
-    else if (counter > 0) {
-
+    else {
+        console.log(counter)
     }
-    console.log(counter)
+
 }
 
 function list2(){
