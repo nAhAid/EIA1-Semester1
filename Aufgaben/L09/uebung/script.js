@@ -20,6 +20,7 @@ function list2() {
         clearInterval(index);
     }
 }
+//ich möchte die liste der namen ausgeben lassen, aber nur einmal. nicht jedes mal wenn ich klicke
 /**for (let index = 0; index < names.length; index++) {
     console.log(names[index])
     document.querySelector('#liste').innerHTML += names[index] + "<br>";
