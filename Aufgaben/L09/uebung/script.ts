@@ -7,28 +7,37 @@ document.querySelector('#zahl').innerHTML = 'Gesamtzahl aller Namen: ' + names_z
 
 
 
+let count = 0;
 
+/**function printListOnlyOnce() {
 
-function list() {
-    var counter : number = 0;
-    if (counter = 0) {
-        list2();
-        counter = counter+1;
+    if (count == 0) {
+        printList();
+        count = count+1;
       
     }
     else {
-        console.log(counter)
+        console.log(count)
     }
 
+}*/
+
+let alreadyPrinted = false;
+function printListOnlyOnce() {
+console.log(alreadyPrinted);  
+if (!alreadyPrinted) {
+    printList();
+    alreadyPrinted = true;
+  }
+  
 }
 
-function list2(){
+function printList(){
     for (let index = 0; index < names.length; index++) {
         console.log(names[index])
 
         document.querySelector('#liste').innerHTML += names[index] + "<br>";
 
-        clearInterval(index)
     }
 }
 //ich möchte die liste der namen ausgeben lassen, aber nur einmal. nicht jedes mal wenn ich klicke
@@ -44,5 +53,5 @@ function list2(){
 }*/
 
 document.querySelector('#buttonAufsteigend').addEventListener('click', function () {
-    list()
+    printList()
 });
