@@ -1,4 +1,4 @@
-export let sound = {
+let sound = {
     a: new Audio("assets/L08_task_material_assets_Keyboard_a.mp3"),
     af: new Audio("assets/L08_task_material_assets_Keyboard_af.mp3"),
     b: new Audio("assets/L08_task_material_assets_Keyboard_b.mp3"),
@@ -13,7 +13,7 @@ export let sound = {
     gf: new Audio("assets/L08_task_material_assets_Keyboard_gf.mp3")
 };
 
-export function playSample(soundList: HTMLAudioElement[]): void {
+function playSample1(soundList: HTMLAudioElement[]): void {
     let currentIndex: number = 1;
     soundList[0].play();
     setInterval(() => {
@@ -27,42 +27,42 @@ export function playSample(soundList: HTMLAudioElement[]): void {
     }, 3000);
 
 }
-export function keyboard(keyboardEvent: KeyboardEvent): void {
-    console.log(keyboardEvent.key);
-    if (keyboardEvent.key === "1") {
+function keyboard1(keyboard1Event: KeyboardEvent): void {
+    console.log(keyboard1Event.key);
+    if (keyboard1Event.key === "1") {
         sound.c.play();
     }
-    else if (keyboardEvent.key === "2") {
+    else if (keyboard1Event.key === "2") {
         sound.d.play();
     }
-    else if (keyboardEvent.key === "3") {
+    else if (keyboard1Event.key === "3") {
         sound.e.play();
     }
-    else if (keyboardEvent.key === "4") {
+    else if (keyboard1Event.key === "4") {
         sound.f.play();
     }
-    else if (keyboardEvent.key === "5") {
+    else if (keyboard1Event.key === "5") {
         sound.g.play();
     }
-    else if (keyboardEvent.key === "6") {
+    else if (keyboard1Event.key === "6") {
         sound.a.play();
     }
-    else if (keyboardEvent.key === "7") {
+    else if (keyboard1Event.key === "7") {
         sound.b.play();
     }
-    else if (keyboardEvent.key === "q") {
+    else if (keyboard1Event.key === "q") {
         sound.df.play();
     }
-    else if (keyboardEvent.key === "w") {
+    else if (keyboard1Event.key === "w") {
         sound.ef.play();
     }
-    else if (keyboardEvent.key === "e") {
+    else if (keyboard1Event.key === "e") {
         sound.gf.play();
     }
-    else if (keyboardEvent.key === "r") {
+    else if (keyboard1Event.key === "r") {
         sound.af.play();
     }
-    else if (keyboardEvent.key === "t") {
+    else if (keyboard1Event.key === "t") {
         sound.bf.play();
     }
     else {
@@ -71,25 +71,26 @@ export function keyboard(keyboardEvent: KeyboardEvent): void {
 }
 
 
-document.querySelector("#taste1").addEventListener("click", () => { playSample([sound.c]); });
-document.querySelector("#taste2").addEventListener("click", () => { playSample([sound.d]); });
-document.querySelector("#taste3").addEventListener("click", () => { playSample([sound.e]); });
-document.querySelector("#taste4").addEventListener("click", () => { playSample([sound.f]); });
-document.querySelector("#taste5").addEventListener("click", () => { playSample([sound.g]); });
-document.querySelector("#taste6").addEventListener("click", () => { playSample([sound.a]); });
-document.querySelector("#taste7").addEventListener("click", () => { playSample([sound.b]); });
+document.querySelector("#taste1").addEventListener("click", () => { playSample1([sound.c]); });
+document.querySelector("#taste2").addEventListener("click", () => { playSample1([sound.d]); });
+document.querySelector("#taste3").addEventListener("click", () => { playSample1([sound.e]); });
+document.querySelector("#taste4").addEventListener("click", () => { playSample1([sound.f]); });
+document.querySelector("#taste5").addEventListener("click", () => { playSample1([sound.g]); });
+document.querySelector("#taste6").addEventListener("click", () => { playSample1([sound.a]); });
+document.querySelector("#taste7").addEventListener("click", () => { playSample1([sound.b]); });
 
-document.querySelector("#staste1").addEventListener("click", () => { playSample([sound.df]); });
-document.querySelector("#staste2").addEventListener("click", () => { playSample([sound.ef]); });
-document.querySelector("#staste3").addEventListener("click", () => { playSample([sound.gf]); });
-document.querySelector("#staste4").addEventListener("click", () => { playSample([sound.af]); });
-document.querySelector("#staste5").addEventListener("click", () => { playSample([sound.bf]); });
+document.querySelector("#staste1").addEventListener("click", () => { playSample1([sound.df]); });
+document.querySelector("#staste2").addEventListener("click", () => { playSample1([sound.ef]); });
+document.querySelector("#staste3").addEventListener("click", () => { playSample1([sound.gf]); });
+document.querySelector("#staste4").addEventListener("click", () => { playSample1([sound.af]); });
+document.querySelector("#staste5").addEventListener("click", () => { playSample1([sound.bf]); });
 
 document.querySelector("#play").addEventListener("click", () => {
-    playSample([sound.c, sound.d, sound.e, sound.f, sound.g, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.f, sound.f, sound.f, sound.f, sound.e, sound.e, sound.d, sound.d, sound.d, sound.d, sound.c]);
+    console.log(1)
+    playSample1([sound.c, sound.d, sound.e, sound.f, sound.g, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.f, sound.f, sound.f, sound.f, sound.e, sound.e, sound.d, sound.d, sound.d, sound.d, sound.c]);
 });
 
-addEventListener("keypress", (e: KeyboardEvent) => { keyboard(e); });
-//addEventListener("keypress", (keypress: KeyboardEvent) => { playSample([sound.c]) });
-//addEventListener("keypress", (keypress: KeyboardEvent) => { playSample([sound.d]) });
+addEventListener("keypress", (e: KeyboardEvent) => { keyboard1(e); });
+//addEventListener("keypress", (keypress: KeyboardEvent) => { playSample1([sound.c]) });
+//addEventListener("keypress", (keypress: KeyboardEvent) => { playSample1([sound.d]) });
 
