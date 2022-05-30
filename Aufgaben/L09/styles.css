@@ -48,3 +48,26 @@ body {
     display: inline-flex;
 }
 
+#play {
+  font-size: 100px;
+  padding: 10px;
+
+}
+
+#remix {
+    font-size: 100px;
+    padding: 10px;
+    color: red;
+  
+  }
+
+.icon-alone {
+    display: inline-block;
+  };
+  
+  .screen-reader-text { /* Reusable, toolbox kind of class */
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  

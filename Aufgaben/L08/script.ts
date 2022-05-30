@@ -90,6 +90,8 @@ document.querySelector("#play").addEventListener("click", () => {
     playSample1([sound.c, sound.d, sound.e, sound.f, sound.g, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.f, sound.f, sound.f, sound.f, sound.e, sound.e, sound.d, sound.d, sound.d, sound.d, sound.c]);
 });
 
+
+
 addEventListener("keypress", (e: KeyboardEvent) => { keyboard1(e); });
 //addEventListener("keypress", (keypress: KeyboardEvent) => { playSample1([sound.c]) });
 //addEventListener("keypress", (keypress: KeyboardEvent) => { playSample1([sound.d]) });

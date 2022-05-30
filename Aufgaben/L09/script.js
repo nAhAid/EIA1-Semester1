@@ -1,27 +1,56 @@
+let isPlaying = false;
 let tones = {
-    a: new Audio("../L08/assets/task_material_assets_Keyboard_a.mp3"),
-    af: new Audio("../L08/assets/task_material_assets_Keyboard_af.mp3"),
-    b: new Audio("../L08/assets/task_material_assets_Keyboard_b.mp3"),
-    bf: new Audio("../L08/assets/task_material_assets_Keyboard_bf.mp3"),
-    c: new Audio("../L08/assets/task_material_assets_Keyboard_c.mp3"),
-    d: new Audio("../L08/assets/task_material_assets_Keyboard_d.mp3"),
-    df: new Audio("../L08/assets/task_material_assets_Keyboard_df.mp3"),
-    e: new Audio("../L08/assets/task_material_assets_Keyboard_e.mp3"),
-    ef: new Audio("../L08/assets/task_material_assets_Keyboard_ef.mp3"),
-    f: new Audio("../L08/assets/task_material_assets_Keyboard_f.mp3"),
-    g: new Audio("../L08/assets/task_material_assets_Keyboard_g.mp3"),
-    gf: new Audio("../L08/assets/task_material_assets_Keyboard_gf.mp3")
+    a: new Audio("../L08/assets/L08_task_material_assets_Keyboard_a.mp3"),
+    af: new Audio("../L08/assets/L08_task_material_assets_Keyboard_af.mp3"),
+    b: new Audio("../L08/assets/L08_task_material_assets_Keyboard_b.mp3"),
+    bf: new Audio("../L08/assets/L08_task_material_assets_Keyboard_bf.mp3"),
+    c: new Audio("../L08/assets/L08_task_material_assets_Keyboard_c.mp3"),
+    d: new Audio("../L08/assets/L08_task_material_assets_Keyboard_d.mp3"),
+    df: new Audio("../L08/assets/L08_task_material_assets_Keyboard_df.mp3"),
+    e: new Audio("../L08/assets/L08_task_material_assets_Keyboard_e.mp3"),
+    ef: new Audio("../L08/assets/L08_task_material_assets_Keyboard_ef.mp3"),
+    f: new Audio("../L08/assets/L08_task_material_assets_Keyboard_f.mp3"),
+    g: new Audio("../L08/assets/L08_task_material_assets_Keyboard_g.mp3"),
+    gf: new Audio("../L08/assets/L08_task_material_assets_Keyboard_gf.mp3")
 };
-function playSample(tonesList) {
+let list = [
+    tones.a,
+    tones.af,
+    tones.b,
+    tones.bf,
+    tones.c,
+    tones.d,
+    tones.df,
+    tones.e,
+    tones.ef,
+    tones.f,
+    tones.g,
+    tones.gf
+];
+function playSample(tonesList, doShuffle = false) {
     let currentIndex = 1;
     tonesList[0].play();
     setInterval(() => {
         if (currentIndex > tonesList.length - 1) {
+            if (isPlaying) {
+                currentIndex = 0;
+            }
+            else {
+                clearInterval();
+                return;
+            }
+        }
+        if (!isPlaying) {
             clearInterval();
             return;
         }
         tonesList[currentIndex].play();
-        currentIndex += 1; //oder "++" => erhöt index um 1
+        if (!doShuffle) {
+            currentIndex += 1; //oder "++" => erhöt index um 1
+        }
+        else {
+            currentIndex = Math.round(Math.random() * (tonesList.length - 1));
+        }
         console.log(currentIndex);
     }, 3000);
 }
@@ -67,7 +96,6 @@ function keyboard(keyboardEvent) {
         console.log("Unbekannte Taste");
     }
 }
-let isPlaying = false;
 document.querySelector("#taste1").addEventListener("click", () => { playSample([tones.c]); });
 document.querySelector("#taste2").addEventListener("click", () => { playSample([tones.d]); });
 document.querySelector("#taste3").addEventListener("click", () => { playSample([tones.e]); });
@@ -82,8 +110,26 @@ document.querySelector("#staste4").addEventListener("click", () => { playSample(
 document.querySelector("#staste5").addEventListener("click", () => { playSample([tones.bf]); });
 document.querySelector("#play").addEventListener("click", () => {
     isPlaying = !isPlaying;
-    while (isPlaying) {
-        playSample([tones.c, tones.d, tones.e, tones.f, tones.g, tones.g, tones.a, tones.a, tones.a, tones.a, tones.g, tones.a, tones.a, tones.a, tones.a, tones.g, tones.f, tones.f, tones.f, tones.f, tones.e, tones.e, tones.d, tones.d, tones.d, tones.d, tones.c]);
+    if (isPlaying) {
+        playSample([tones.c, tones.d, tones.g, tones.f, tones.d, tones.d, tones.c]);
+        document.querySelector("#play").classList.remove("fa-play");
+        document.querySelector("#play").classList.add("fa-stop");
+    }
+    else {
+        document.querySelector("#play").classList.add("fa-play");
+        document.querySelector("#play").classList.remove("fa-stop");
+    }
+});
+document.querySelector("#remix").addEventListener("click", () => {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+        playSample(list, true);
+        document.querySelector("#remix").classList.remove("fa-play");
+        document.querySelector("#remix").classList.add("fa-stop");
+    }
+    else {
+        document.querySelector("#remix").classList.add("fa-play");
+        document.querySelector("#remix").classList.remove("fa-stop");
     }
 });
 addEventListener("keypress", (e) => { keyboard(e); });
