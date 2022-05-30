@@ -27,6 +27,7 @@ function playSample(tonesList: HTMLAudioElement[]): void {
     }, 3000);
 
 }
+
 function keyboard(keyboardEvent: KeyboardEvent): void {
     console.log(keyboardEvent.key);
     if (keyboardEvent.key === "1") {

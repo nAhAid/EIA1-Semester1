@@ -86,7 +86,7 @@ document.querySelector("#staste4").addEventListener("click", () => { playSample1
 document.querySelector("#staste5").addEventListener("click", () => { playSample1([sound.bf]); });
 
 document.querySelector("#play").addEventListener("click", () => {
-    console.log(1)
+    console.log(1);
     playSample1([sound.c, sound.d, sound.e, sound.f, sound.g, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.a, sound.a, sound.a, sound.a, sound.g, sound.f, sound.f, sound.f, sound.f, sound.e, sound.e, sound.d, sound.d, sound.d, sound.d, sound.c]);
 });
 
