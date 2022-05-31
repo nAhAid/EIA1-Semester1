@@ -73,7 +73,7 @@ var it_internetnutzer_rel_2005: number = 0.38;
 /* Quelle: https://de.statista.com/statistik/daten/studie/71009/umfrage/anteil-der-offliner-in-europa/" */
 
 /* Rechnung Italien */
-var it_einwohner_anteil_eu: number = it_einwohner_gesamt / eu_einwohner_gesamt * 100;
+var itEinwohnerAnteilEu: number = it_einwohner_gesamt / eu_einwohner_gesamt * 100;
 var it_internetnutzer_2021: number = it_einwohner_gesamt * it_internetnutzer_rel;
 var it_internetnutzer_2005: number = it_einwohner_2005 * it_internetnutzer_rel_2005;
 var it_aenderung_internetnutzer: number = it_internetnutzer_2021 - it_internetnutzer_2005;
@@ -125,7 +125,7 @@ console.log("Internetnutzerzuwachs in Prozent: ", fr_aenderung_internetnutzer_pr
 
 /*Italien Ausgabe */
 console.log("Italien:")
-console.log("Italien Einwohneranteil an der EU im Jahr 2021: ", + it_einwohner_anteil_eu.toFixed(2) + "%");
+console.log("Italien Einwohneranteil an der EU im Jahr 2021: ", + itEinwohnerAnteilEu.toFixed(2) + "%");
 console.log("Anteil der Internetnutzer in Italien im Jahr 2021: ", Number(it_internetnutzer_2021.toFixed(2)).toLocaleString());
 console.log("Internetnutzer in Italien im Jahr 2021: ", it_internetnutzer_rel * 100 + "%");
 console.log("Neue Internetnutzer von 2005 zu 2021: ", Number(it_aenderung_internetnutzer.toFixed(2)).toLocaleString());
