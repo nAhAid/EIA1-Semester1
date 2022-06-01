@@ -45,11 +45,37 @@ let dennis: Person = {
     student: true
 };
 
-let namen: string[] = [
-    bastian.name, rausch.name, dennis.name
+
+
+let namen: Person[] = [
+    {
+        name: "Dennis Grützimacher",
+        alter: 34,
+        studiengang: "MKB",
+        wohnort: "Villingen",
+        haarfarbe: "Schwarz",
+        student: true
+    },
+    {
+        name: "Prof. Dr. Gabriel Rausch",
+        alter: 35,
+        studiengang: "MKB",
+        wohnort: "Furtwangen",
+        haarfarbe: "Schwarz",
+        student: false
+
+    },
+    {
+        name: "Bastian Aberle",
+        alter: 25,
+        studiengang: "MKB",
+        wohnort: "Furtwangen",
+        haarfarbe: "Schwarz",
+        student: true
+    }
 ];
 
 for (let index: number = 0; index < namen.length; index++) {
-    console.log(namen[index]);
+    console.log(namen[index].name);
 
 }
