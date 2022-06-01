@@ -5,3 +5,51 @@ for (let index: number = 0; index < numbers.length; index++) {
 
 }
 console.log(summe);
+
+//*Interface ist Blaupause für Objekte
+interface Person {
+    name: string;
+    alter: number;
+    studiengang: string;
+    wohnort: string;
+    haarfarbe: string;
+    student: boolean;
+
+}
+
+//*Objekt nutzt Blaupause wie ne Variable number/string/boolean/void etc.
+let bastian: Person = {
+    name: "Bastian Aberle",
+    alter: 25,
+    studiengang: "MKB",
+    wohnort: "Furtwangen",
+    haarfarbe: "Schwarz",
+    student: true
+};
+
+let rausch: Person = {
+    name: "Prof. Dr. Gabriel Rausch",
+    alter: 35,
+    studiengang: "MKB",
+    wohnort: "Furtwangen",
+    haarfarbe: "Schwarz",
+    student: false
+};
+
+let dennis: Person = {
+    name: "Dennis Grützimacher",
+    alter: 34,
+    studiengang: "MKB",
+    wohnort: "Villingen",
+    haarfarbe: "Schwarz",
+    student: true
+};
+
+let namen: string[] = [
+    bastian.name, rausch.name, dennis.name
+];
+
+for (let index: number = 0; index < namen.length; index++) {
+    console.log(namen[index]);
+
+}

@@ -4,4 +4,35 @@ for (let index = 0; index < numbers.length; index++) {
     summe = summe + numbers[index];
 }
 console.log(summe);
+//*Objekt nutzt Blaupause wie ne Variable number/string/boolean/void etc.
+let bastian = {
+    name: "Bastian Aberle",
+    alter: 25,
+    studiengang: "MKB",
+    wohnort: "Furtwangen",
+    haarfarbe: "Schwarz",
+    student: true
+};
+let rausch = {
+    name: "Prof. Dr. Gabriel Rausch",
+    alter: 35,
+    studiengang: "MKB",
+    wohnort: "Furtwangen",
+    haarfarbe: "Schwarz",
+    student: false
+};
+let dennis = {
+    name: "Dennis Grützimacher",
+    alter: 34,
+    studiengang: "MKB",
+    wohnort: "Villingen",
+    haarfarbe: "Schwarz",
+    student: true
+};
+let namen = [
+    bastian.name, rausch.name, dennis.name
+];
+for (let index = 0; index < namen.length; index++) {
+    console.log(namen[index]);
+}
 //# sourceMappingURL=script.js.map
