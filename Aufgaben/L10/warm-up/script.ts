@@ -36,7 +36,7 @@ let rausch: Person = {
 };
 
 let dennis: Person = {
-    name: "Dennis Grützimacher",
+    name: "Dennis Grützi",
     alter: 34,
     studiengang: "MKB",
     wohnort: "Villingen",

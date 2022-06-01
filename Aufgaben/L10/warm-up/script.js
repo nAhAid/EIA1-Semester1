@@ -22,7 +22,7 @@ let rausch = {
     student: false
 };
 let dennis = {
-    name: "Dennis Grützimacher",
+    name: "Dennis Grützi",
     alter: 34,
     studiengang: "MKB",
     wohnort: "Villingen",
