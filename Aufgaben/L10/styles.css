@@ -50,6 +50,8 @@ main {
 	background-position: left center;
 	background-size: 30px;
 
+    
+
 }
 
 #input {
@@ -64,4 +66,15 @@ main {
     font-size: 20px;
     color: #000;
     padding: 0px 10px;
+}
+
+.trash {
+    height: 20px;
+    padding: 2px  0px 0px 435px;
+    opacity: 0;
+    
+}
+
+.trash:hover {
+    opacity: 100;
 }
