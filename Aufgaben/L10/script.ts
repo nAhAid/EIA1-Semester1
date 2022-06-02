@@ -3,5 +3,5 @@ function input() {
     console.log(x);
 }
 
-let x: string = document.getElementById("input").innerHTML;
+let x: string = document.getElementById("name").innerHTML;
 console.log(x);
