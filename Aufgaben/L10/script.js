@@ -1,7 +1,12 @@
-function input() {
-    let x = document.getElementById("input").innerHTML;
-    console.log(x);
+let inputs = [
+    {
+        input: "Hier To-Do's hinzufügen :)"
+    }
+];
+console.log(inputs);
+function addList() {
+    inputs.push({ input: "TEST" });
+    console.log(inputs);
 }
-let x = document.getElementById("name").innerHTML;
-console.log(x);
+document.querySelector("#test").addEventListener("click", () => { addList(); });
 //# sourceMappingURL=script.js.map
