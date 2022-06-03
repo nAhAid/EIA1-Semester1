@@ -5,15 +5,18 @@ let inputs = [
     }
 ];
 console.log(inputs);
-function addList() {
-    let inputValue = document.getElementById("input").value;
-    /**inputs.push(
-         { input: "TEST" }
-     ); */
-    inputs[x + 1] = { input: inputValue };
-    x++;
-    document.getElementById("gesamt").innerHTML = inputs.length.toString();
-    console.log(inputs);
+function addList(keyboardEvent) {
+    //key wert für entertaste noch rausfinden!!
+    if (keyboardEvent.key === "Enter") {
+        let inputValue = document.getElementById("input").value;
+        /**inputs.push(
+             { input: "TEST" }
+         ); */
+        inputs[x + 1] = { input: inputValue };
+        x++;
+        document.getElementById("gesamt").innerHTML = inputs.length.toString();
+        console.log(inputs);
+    }
 }
 function removeList() {
     inputs.splice(x, 1);
