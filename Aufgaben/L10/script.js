@@ -6,10 +6,11 @@ let inputs = [
 ];
 console.log(inputs);
 function addList() {
+    let inputValue = document.getElementById("#input").value;
     /**inputs.push(
          { input: "TEST" }
      ); */
-    inputs[x + 1] = { input: "index Test" };
+    inputs[x + 1] = { input: inputValue };
     x++;
     console.log(inputs);
 }

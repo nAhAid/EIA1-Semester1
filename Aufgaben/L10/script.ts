@@ -14,12 +14,12 @@ let inputs: Eingabe[] = [
 console.log(inputs);
 
 function addList(): void {
-
+    let inputValue = (<HTMLInputElement>document.getElementById("#input")).value;
 
    /**inputs.push(
         { input: "TEST" }
     ); */ 
-    inputs[x + 1] = { input: "index Test" };
+    inputs[x + 1] = { input: inputValue};
     x++;
     console.log(inputs);
 }
