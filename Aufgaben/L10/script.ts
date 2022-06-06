@@ -10,8 +10,6 @@ let inputs: Eingabe[] = [
 console.log(inputs);
 
 function addList(): void {
-
-
     let inputValue: string = (<HTMLInputElement>document.getElementById("input")).value;
 
     /**inputs.push(
@@ -21,7 +19,6 @@ function addList(): void {
     counter();
     console.log(inputs);
     writeList();
-
 
 }
 
@@ -37,7 +34,6 @@ function clickList(toDoIndex: string): void {
     inputs[parseInt(toDoIndex)].isDone = !inputs[parseInt(toDoIndex)].isDone;
     writeList();
 }
-
 
 
 // "\" vor Anführungszeichen für sog. escaping um zu verhindern, dass er raus "springt". Macht man mit option + shift + 7
