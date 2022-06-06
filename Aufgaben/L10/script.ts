@@ -1,45 +1,62 @@
 interface Eingabe {
     input: string;
+    isDone: boolean;
 }
-
-let x: number = 0;
 
 let inputs: Eingabe[] = [
 
-    {
-        input: "Hier To-Do's hinzufügen :)"
-    }
 ];
 
 console.log(inputs);
 
-function addList(keyboardEvent: KeyboardEvent): void {
+function addList(): void {
 
-    //key wert für entertaste noch rausfinden!!
-    if (keyboardEvent.key === "Enter") {
-        let inputValue = (<HTMLInputElement>document.getElementById("input")).value;
 
-        /**inputs.push(
-             { input: "TEST" }
-         ); */
-        inputs[x + 1] = { input: inputValue };
-        x++;
-        document.getElementById("gesamt").innerHTML = inputs.length.toString();
-        console.log(inputs);
-    }
+    let inputValue: string = (<HTMLInputElement>document.getElementById("input")).value;
+
+    /**inputs.push(
+         { input: "TEST" }
+     ); */
+    inputs.push({ input: inputValue, isDone: false });
+    counter();
+    console.log(inputs);
+    writeList();
 
 
 }
 
-function removeList(): void {
+function removeList(toDoIndex: string): void {
+    inputs.splice(parseInt(toDoIndex), 1);
+    writeList();
+    counter();
 
-    inputs.splice(x, 1);
-    console.log(inputs);
-    x--;
+}
+
+function clickList(toDoIndex: string): void {
+
+    inputs[parseInt(toDoIndex)].isDone = !inputs[parseInt(toDoIndex)].isDone;
+    writeList();
+}
+
+
+
+// "\" vor Anführungszeichen für sog. escaping um zu verhindern, dass er raus "springt". Macht man mit option + shift + 7
+function writeList(): void {
+    document.querySelector("#liste").innerHTML = "";
+
+    inputs.forEach((value, index) => {
+        let classes: string = value.isDone ? "done" : "open";
+        document.querySelector("#liste").innerHTML += "<li onclick=\"clickList(" + index + ")\" class=\"" + classes + "\">" + value.input + " <img onclick =\"removeList(" + index + ")\" class=\"trash\" src=\"assets/trash.png\"></li>";
+
+    });
+
+}
+
+function counter(): void {
     document.getElementById("gesamt").innerHTML = inputs.length.toString();
-};
+}
 
 
 
-document.querySelector("#test").addEventListener("click", () => { addList(); });
-document.querySelector("#gesamt").addEventListener("click", () => { removeList(); });
+
+

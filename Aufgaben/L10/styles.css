@@ -43,15 +43,28 @@ main {
     border-radius: 8px;
     border-width: 2px;
     border-color: rgb(255, 255, 255);
-    
+
+    background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 30px;
+
+}
+
+.done {
+    background-color: #fff;
+	background-image: url("../L10/assets/check_mark.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 30px;
+}
+
+.open {
     background-color: #fff;
 	background-image: url("../L10/assets/circle.png");
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: 30px;
-
-    
-
 }
 
 #input {

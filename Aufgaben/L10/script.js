@@ -1,30 +1,33 @@
-let x = 0;
-let inputs = [
-    {
-        input: "Hier To-Do's hinzufügen :)"
-    }
-];
+let inputs = [];
 console.log(inputs);
-function addList(keyboardEvent) {
-    //key wert für entertaste noch rausfinden!!
-    if (keyboardEvent.key === "Enter") {
-        let inputValue = document.getElementById("input").value;
-        /**inputs.push(
-             { input: "TEST" }
-         ); */
-        inputs[x + 1] = { input: inputValue };
-        x++;
-        document.getElementById("gesamt").innerHTML = inputs.length.toString();
-        console.log(inputs);
-    }
-}
-function removeList() {
-    inputs.splice(x, 1);
+function addList() {
+    let inputValue = document.getElementById("input").value;
+    /**inputs.push(
+         { input: "TEST" }
+     ); */
+    inputs.push({ input: inputValue, isDone: false });
+    counter();
     console.log(inputs);
-    x--;
+    writeList();
+}
+function removeList(toDoIndex) {
+    inputs.splice(parseInt(toDoIndex), 1);
+    writeList();
+    counter();
+}
+function clickList(toDoIndex) {
+    inputs[parseInt(toDoIndex)].isDone = !inputs[parseInt(toDoIndex)].isDone;
+    writeList();
+}
+// "\" vor Anführungszeichen für sog. escaping um zu verhindern, dass er raus "springt". Macht man mit option + shift + 7
+function writeList() {
+    document.querySelector("#liste").innerHTML = "";
+    inputs.forEach((value, index) => {
+        let classes = value.isDone ? "done" : "open";
+        document.querySelector("#liste").innerHTML += "<li onclick=\"clickList(" + index + ")\" class=\"" + classes + "\">" + value.input + " <img onclick =\"removeList(" + index + ")\" class=\"trash\" src=\"assets/trash.png\"></li>";
+    });
+}
+function counter() {
     document.getElementById("gesamt").innerHTML = inputs.length.toString();
 }
-;
-document.querySelector("#test").addEventListener("click", () => { addList(); });
-document.querySelector("#gesamt").addEventListener("click", () => { removeList(); });
 //# sourceMappingURL=script.js.map
