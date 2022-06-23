@@ -10,6 +10,32 @@ let sammlung: Satz[] = [
         deutsch: ["wort", "worte", "worte"],
         spanisch: ["wort", "worte2", "worte"]
 
+    },
+
+    {
+        deutsch: ["Wie", "heißt", "du"],
+        spanisch: ["¿Cuál", "es", "su nombre?"]
+    },
+
+    {
+        deutsch: ["Ich", "liebe", "programmieren"],
+        spanisch: ["me", "encanta", "programar"]
+
+    },
+
+    {
+        deutsch: ["Ich", "mag", "Brezeln"],
+        spanisch: ["me", "gustan", "los pretzels"]
+    }, 
+
+    {
+        deutsch: ["Luke", "ich", "bin", "dein", "Vater"],
+        spanisch: ["Luke", "yo", "soy", "tu", "padre"]
+    },
+
+    {
+        deutsch: [],
+        spanisch: []
     }
 ];
 
