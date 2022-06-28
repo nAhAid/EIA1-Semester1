@@ -4,6 +4,8 @@ let queryParams = new URLSearchParams(window.location.search);
 let lang = queryParams.get("lang");
 //Variable um ausgewählte Sprache in HTML anzeigen zu lassen
 let sprache = "Sprache";
+//Variable zum Speichern, welche Schwierigkeit gewählt wurde
+let ausgewaehlteSchwierigkeit = -1;
 //if/ if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (lang == "es") {
     sprache = "Spanisch";

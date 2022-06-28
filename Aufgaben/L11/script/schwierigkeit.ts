@@ -7,6 +7,9 @@ let lang: string = queryParams.get("lang");
 //Variable um ausgewählte Sprache in HTML anzeigen zu lassen
 let sprache: string = "Sprache";
 
+//Variable zum Speichern, welche Schwierigkeit gewählt wurde
+let ausgewaehlteSchwierigkeit: number = -1;
+
 //if/ if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (lang == "es") {
     sprache = "Spanisch";
