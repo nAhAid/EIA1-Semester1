@@ -87,9 +87,75 @@ let sammlung: Satz[] = [
 
 ];
 
-console.log(sammlung.length);
+function shuffleList(list: any[]): any[] {
 
-function randomize(arrayPoint: number): void {
-    //let shuffled = Array.from(sammlung).sort(() => 0.5 - Math.random());
+    return list
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
 
+}
+//Beim aufrufen der Funktion shuffleList, wird das Array "sammlung" neu zusammen gewürfelt
+sammlung = shuffleList(sammlung);
+
+
+//In Zeile zwei werden alle in der URL mitgegebenen Parameter abgerufen
+let queryParamsLern: URLSearchParams = new URLSearchParams(window.location.search);
+//In Zeile vier und fünf werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
+let langLern: string = queryParamsLern.get("lang");
+let diffLern: number = parseInt(queryParamsLern.get("diff"));
+
+let spracheLern: string = langLern;
+let stufeLern: number = diffLern;
+
+//if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
+if (langLern == "es") {
+    spracheLern = "Spanisch";
+}
+else if (langLern == "ua") {
+    spracheLern = "Ukrainisch";
+}
+document.querySelector("h1").innerHTML = spracheLern;
+
+
+let currentCount: number = 0;
+
+//Variable um Reihenfolge der Wörter funktionsübergreifend zu nutzen
+let currentSentence: string[] = [];
+
+//Variable um geklickte Wort-Reihenfolge zu speichern. Um später mitWort-Reihenfolge von "currentSentence" zu vergleichen
+let currentClick: string[] = [];
+
+
+function satzGenerator(fremdsprache: string): void {
+    //".pop" entfernt das letzte Element aus der Liste => Sätze werden nicht mehrmals aufgerufen.
+    let satz: Satz = sammlung.pop();
+    let deutsch: string[] = satz.deutsch;
+    //"sprache" als leere Liste definiert
+    let sprache: string[] = [];
+    
+    if (fremdsprache == "es") {
+        sprache = satz.spanisch;
+    }
+    else if (fremdsprache == "ua") {
+        //sprache = satz.ukrainisch;
+    }
+
+    currentSentence = sprache;
+
+    //toString überprüfen!!
+    document.querySelector("#satz").innerHTML = deutsch.toString();
+
+}
+
+
+
+function wortGenerator (): void {
+    let worte: string[] = shuffleList(currentSentence);
+     
+    for (let index = 0; index < worte.length; index++) {
+        document.querySelector("#buttons").innerHTML
+        
+     }
+ 
 }

@@ -61,8 +61,54 @@ let sammlung = [
         spanisch: ["¡Viene", "el", "invierno!"]
     }
 ];
-console.log(sammlung.length);
-function randomize(arrayPoint) {
-    //let shuffled = Array.from(sammlung).sort(() => 0.5 - Math.random());
+function shuffleList(list) {
+    return list
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+}
+//Beim aufrufen der Funktion shuffleList, wird das Array "sammlung" neu zusammen gewürfelt
+sammlung = shuffleList(sammlung);
+//In Zeile zwei werden alle in der URL mitgegebenen Parameter abgerufen
+let queryParamsLern = new URLSearchParams(window.location.search);
+//In Zeile vier und fünf werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
+let langLern = queryParamsLern.get("lang");
+let diffLern = parseInt(queryParamsLern.get("diff"));
+let spracheLern = langLern;
+let stufeLern = diffLern;
+//if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
+if (langLern == "es") {
+    spracheLern = "Spanisch";
+}
+else if (langLern == "ua") {
+    spracheLern = "Ukrainisch";
+}
+document.querySelector("h1").innerHTML = spracheLern;
+let currentCount = 0;
+//Variable um Reihenfolge der Wörter funktionsübergreifend zu nutzen
+let currentSentence = [];
+//Variable um geklickte Wort-Reihenfolge zu speichern. Um später mitWort-Reihenfolge von "currentSentence" zu vergleichen
+let currentClick = [];
+function satzGenerator(fremdsprache) {
+    //".pop" entfernt das letzte Element aus der Liste => Sätze werden nicht mehrmals aufgerufen.
+    let satz = sammlung.pop();
+    let deutsch = satz.deutsch;
+    //"sprache" als leere Liste definiert
+    let sprache = [];
+    if (fremdsprache == "es") {
+        sprache = satz.spanisch;
+    }
+    else if (fremdsprache == "ua") {
+        //sprache = satz.ukrainisch;
+    }
+    currentSentence = sprache;
+    //toString überprüfen!!
+    document.querySelector("#satz").innerHTML = deutsch.toString();
+}
+function wortGenerator() {
+    let worte = shuffleList(currentSentence);
+    for (let index = 0; index < worte.length; index++) {
+        document.querySelector("#buttons").innerHTML;
+    }
 }
 //# sourceMappingURL=lern.js.map
