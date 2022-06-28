@@ -1,3 +1,80 @@
+//Variable zum Speichern, welche Sprache ausgewählt wurde
+let ausgewaehlteSprache: string = "";
+
+//Navigation zwischen HTML Dokumenten
+//if-Bedingung prüft, auf welchem HTML-Dokument der Browser gerade ist
+if (window.location.href.includes("sprache.html")) {
+    document.querySelector("#spanisch").addEventListener("click", () => {
+        ausgewaehlteSprache = "Spanisch";
+        //In der URL werden zusätzliche Parameter mitgegeben. Eingeleitet durch "?". Parameter "lang" mit wert "es"
+        window.location.href = "schwierigkeit.html?lang=es";
+    });
+
+    document.querySelector("#ukrainisch").addEventListener("click", () => {
+        ausgewaehlteSprache = "Ukrainisch";
+        //In der URL werden zusätzliche Parameter mitgegeben. Eingeleitet durch "?". Parameter "lang" mit wert "ua"
+        window.location.href = "schwierigkeit.html?lang=ua";
+    });
+}
+
+
+//Nächstes HTML-Dkoument: schwierigkeit.html -> Auswählen der Schwierigkeit
+
+
+//Variable zum Speichern, welche Schwierigkeit gewählt wurde
+let ausgewaehlteSchwierigkeit: number = -1;
+
+
+//Navigation zwischen HTML Dokumenten
+//if-Bedingung prüft, auf welchem HTML-Dokument der Browser gerade ist
+/* if (window.location.href.includes("schwierigkeit.html")) {
+    document.querySelector("h1").innerHTML = ausgewaehlteSprache;
+    document.querySelector("#leicht").addEventListener("click", () => {
+        ausgewaehlteSchwierigkeit = 1;
+        window.location.href = "lern.html";
+
+    });
+
+    document.querySelector("#mittel").addEventListener("click", () => {
+        ausgewaehlteSchwierigkeit = 2;
+        window.location.href = "lern.html";
+
+    });
+
+    document.querySelector("#schwer").addEventListener("click", () => {
+        ausgewaehlteSchwierigkeit = 3;
+        window.location.href = "lern.html";
+
+    });
+} */
+
+
+
+
+//Nächstes HTML-Dkoument: lern.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Interface um Objekt Inhalte zu definieren (string, number, etc.)
 //Für jedes Array im Interface mit []-Klammern markieren
 interface Satz {

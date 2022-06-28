@@ -1,3 +1,22 @@
+//Variable zum Speichern, welche Sprache ausgewählt wurde
+let ausgewaehlteSprache = "";
+//Navigation zwischen HTML Dokumenten
+//if-Bedingung prüft, auf welchem HTML-Dokument der Browser gerade ist
+if (window.location.href.includes("sprache.html")) {
+    document.querySelector("#spanisch").addEventListener("click", () => {
+        ausgewaehlteSprache = "Spanisch";
+        //In der URL werden zusätzliche Parameter mitgegeben. Eingeleitet durch "?". Parameter "lang" mit wert "es"
+        window.location.href = "schwierigkeit.html?lang=es";
+    });
+    document.querySelector("#ukrainisch").addEventListener("click", () => {
+        ausgewaehlteSprache = "Ukrainisch";
+        //In der URL werden zusätzliche Parameter mitgegeben. Eingeleitet durch "?". Parameter "lang" mit wert "ua"
+        window.location.href = "schwierigkeit.html?lang=ua";
+    });
+}
+//Nächstes HTML-Dkoument: schwierigkeit.html -> Auswählen der Schwierigkeit
+//Variable zum Speichern, welche Schwierigkeit gewählt wurde
+let ausgewaehlteSchwierigkeit = -1;
 //Für jedes Objekt einzelnes Interface
 let sammlung = [
     {
@@ -65,4 +84,4 @@ console.log(sammlung.length);
 function randomize(arrayPoint) {
     //let shuffled = Array.from(sammlung).sort(() => 0.5 - Math.random());
 }
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=sprache.js.map
