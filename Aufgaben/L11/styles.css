@@ -1,11 +1,44 @@
+html,
 body {
-    background-color: rgb(70, 70, 70);
-    
+    height: 100%;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+#format {
+    width: 375px;
+    height: 667px;
+    background-color: grey;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+
+}
+
+main {
+    height: 100%;
+    display: flex;
+
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 footer {
     color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
 }
 
-
+footer p {
+    text-align: center;
+}

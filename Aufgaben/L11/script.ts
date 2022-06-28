@@ -1,10 +1,12 @@
+//Interface um Objekt Inhalte zu definieren (string, number, etc.)
+//Für jedes Array im Interface mit []-Klammern markieren
 interface Satz {
     deutsch: string[];
     spanisch: string[];
 }
 
 //Für jedes Objekt einzelnes Interface
-//Für jedes Array im Interface mit []-Klammern markieren
+
 let sammlung: Satz[] = [
 
     {
