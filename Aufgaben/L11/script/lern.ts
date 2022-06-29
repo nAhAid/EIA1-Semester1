@@ -53,7 +53,7 @@ let sammlung: Satz[] = [
     },
 
     {
-        deutsch: ["Ein", "Verstand", "braucht", "Bücher,", "wie", "ein", "Schwert", "den", "Schleifstein." ],
+        deutsch: ["Ein", "Verstand", "braucht", "Bücher,", "wie", "ein", "Schwert", "den", "Schleifstein."],
         spanisch: ["Una", "mente", "necesita", "libros", "como", "una", "espada", "necesita", "una", "piedra", "de", "afilar."],
         ukrainisch: ["Розуму", "потрібні", "книги,", "як", "меч", "потрібен", "точильний", "камінь."]
     },
@@ -175,7 +175,7 @@ function wortGenerator(): void {
     //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
     for (let index: number = 0; index < worte.length; index++) {
         document.querySelector("#buttons").innerHTML = "<button id=\"button" + index + "\">" + worte[index] + "</button>";
-
+        document.querySelector("#buttons" + index).addEventListener("click", () => { });
     }
 
     document.querySelector("#buttons").addEventListener("click", () => {

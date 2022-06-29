@@ -2,7 +2,7 @@
 let queryParams = new URLSearchParams(window.location.search);
 //In Zeile vier werden die abgerufenen Parameter in der Variable "lang" abgespeichert
 let lang = queryParams.get("lang");
-//Variable um ausgewählte Sprache in HTML anzeigen zu lassen
+//Variable um ausgewählte Sprache zu speichern und ggf. in HTML anzeigen zu lassen
 let sprache = "Sprache";
 //Variable zum Speichern, welche Schwierigkeit gewählt wurde
 let ausgewaehlteSchwierigkeit = -1;
