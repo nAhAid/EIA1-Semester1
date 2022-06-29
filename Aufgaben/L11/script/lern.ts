@@ -5,7 +5,7 @@ interface Satz {
     spanisch: string[];
 }
 
-//Für jedes Objekt einzelnes Interface
+//Für jedes Objekt ein Interface
 
 let sammlung: Satz[] = [
 
@@ -87,6 +87,7 @@ let sammlung: Satz[] = [
 
 ];
 
+//Funktion zum "mischen" von Inhalten der übergebenen Liste
 function shuffleList(list: any[]): any[] {
 
     return list
@@ -101,7 +102,7 @@ sammlung = shuffleList(sammlung);
 
 //In Zeile zwei werden alle in der URL mitgegebenen Parameter abgerufen
 let queryParamsLern: URLSearchParams = new URLSearchParams(window.location.search);
-//In Zeile vier und fünf werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
+//In folgenden zwei Zeilen werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
 let langLern: string = queryParamsLern.get("lang");
 let diffLern: number = parseInt(queryParamsLern.get("diff"));
 
@@ -123,12 +124,12 @@ let currentCount: number = 0;
 //Variable um Reihenfolge der Wörter funktionsübergreifend zu nutzen
 let currentSentence: string[] = [];
 
-//Variable um geklickte Wort-Reihenfolge zu speichern. Um später mitWort-Reihenfolge von "currentSentence" zu vergleichen
+//Variable um geklickte Wort-Reihenfolge zu speichern. Um später mit Wort-Reihenfolge von "currentSentence" zu vergleichen
 let currentClick: string[] = [];
 
 
 function satzGenerator(fremdsprache: string): void {
-    //".pop" entfernt das letzte Element aus der Liste => Sätze werden nicht mehrmals aufgerufen.
+    //".pop" ruft letztes Listen-Element auf und entfernt es aus der Liste => Sätze werden nicht mehrmals aufgerufen.
     let satz: Satz = sammlung.pop();
     let deutsch: string[] = satz.deutsch;
     //"sprache" als leere Liste definiert
@@ -142,6 +143,7 @@ function satzGenerator(fremdsprache: string): void {
         //sprache = satz.ukrainisch;
     }
 
+    //Variable "currentSentence" wird Satz in ausgewählter Sprache übergeben
     currentSentence = sprache;
 
     //toString überprüfen!!
@@ -152,11 +154,18 @@ function satzGenerator(fremdsprache: string): void {
 
 
 function wortGenerator(): void {
+    //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
     let worte: string[] = shuffleList(currentSentence);
 
+    //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
     for (let index: number = 0; index < worte.length; index++) {
         document.querySelector("#buttons").innerHTML = "<button id=\"button" + index + "\">" + worte[index] + "</button>";
 
     }
+
+    document.querySelector("#buttons").addEventListener("click", () => {
+        // Versuch ID auszuwählen
+        let clickedButton: string = this.id;
+    });
 
 }
