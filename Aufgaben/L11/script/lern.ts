@@ -183,7 +183,7 @@ function wortGenerator(): void {
 
     }
 
-
+    //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu lassen
     let ul: HTMLElement = document.querySelector("#buttons");
     for (let i: number = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);

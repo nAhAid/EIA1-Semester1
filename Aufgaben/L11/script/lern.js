@@ -133,6 +133,7 @@ function wortGenerator() {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\">" + currentSentence[index] + "</button>";
         //document.querySelector("#button" + index).addEventListener("click", checkList);
     }
+    //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu lassen
     let ul = document.querySelector("#buttons");
     for (let i = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);
