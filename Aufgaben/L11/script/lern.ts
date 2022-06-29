@@ -175,8 +175,22 @@ function wortGenerator(): void {
     //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
     for (let index: number = 0; index < worte.length; index++) {
         document.querySelector("#buttons").innerHTML = "<button id=\"button" + index + "\">" + worte[index] + "</button>";
-        document.querySelector("#buttons" + index).addEventListener("click", () => { });
+        document.querySelector("#button" + index).addEventListener("click", () => { checkList(index); });
     }
+
+    function checkList(indexCheckList: number): void {
+        let content: string = document.getElementById("button" + indexCheckList).innerText;
+        let punkte: number = 0;
+        if (content == worte[indexCheckList]) {
+            punkte++;
+            document.querySelector("#points").innerHTML = String(punkte);
+        }
+        else if (content != worte[indexCheckList]){
+            punkte--;
+            document.querySelector("#points").innerHTML = String(punkte);
+
+        }
+    };
 
     document.querySelector("#buttons").addEventListener("click", () => {
         // Versuch ID auszuwählen
