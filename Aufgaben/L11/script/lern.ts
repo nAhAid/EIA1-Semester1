@@ -124,12 +124,18 @@ let diffLern: number = parseInt(queryParamsLern.get("diff"));
 let spracheLern: string = langLern;
 let stufeLern: number = diffLern;
 
+let language: string = "";
+
+let satzProgress: number = 0;
+
 //if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (langLern == "es") {
     spracheLern = "Spanisch";
+    language = "es";
 }
 else if (langLern == "ua") {
     spracheLern = "Ukrainisch";
+    language = "ua";
 }
 document.querySelector("h1").innerHTML = spracheLern;
 
@@ -161,42 +167,70 @@ function satzGenerator(fremdsprache: string): void {
     //Variable "currentSentence" wird Satz in ausgewählter Sprache übergeben
     currentSentence = sprache;
 
-    //toString überprüfen!!
-    document.querySelector("#satz").innerHTML = deutsch.toString();
+    for (let index: number = 0; index < satz.deutsch.length; index++) {
+        document.querySelector("#satz").innerHTML += satz.deutsch[index] + " ";
+
+    }
 
 }
 
 
 
 function wortGenerator(): void {
-    //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
-    let worte: string[] = shuffleList(currentSentence);
+    for (let index: number = 0; index < currentSentence.length; index++) {
+        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\">" + currentSentence[index] + "</button>";
+        //document.querySelector("#button" + index).addEventListener("click", checkList);
 
-    //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
-    for (let index: number = 0; index < worte.length; index++) {
-        document.querySelector("#buttons").innerHTML = "<button id=\"button" + index + "\">" + worte[index] + "</button>";
-        document.querySelector("#button" + index).addEventListener("click", () => { checkList(index); });
     }
 
-    function checkList(indexCheckList: number): void {
-        let content: string = document.getElementById("button" + indexCheckList).innerText;
-        let punkte: number = 0;
-        if (content == worte[indexCheckList]) {
-            punkte++;
-            document.querySelector("#points").innerHTML = String(punkte);
-        }
-        else if (content != worte[indexCheckList]){
-            punkte--;
-            document.querySelector("#points").innerHTML = String(punkte);
 
-        }
-    };
+    let ul: HTMLElement = document.querySelector("#buttons");
+    for (let i: number = ul.children.length; i >= 0; i--) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
 
-    document.querySelector("#buttons").addEventListener("click", () => {
-        // Versuch ID auszuwählen
-        let clickedButton: string = this.id;
-    });
+    Listener();
+
+    /*  //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
+     let worte: string[] = shuffleList(currentSentence);
+     //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
+     for (let index: number = 0; index < worte.length; index++) {
+         document.querySelector("#buttons").innerHTML += "<button>" + worte[index] + "</button>";
+         document.querySelector("#button" + index).addEventListener("click", () => { checkList() });
+ 
+     } */
+
 
 }
+function Listener(): void {
+    let bu: HTMLElement = document.querySelector("#buttons");
+    for (let i: number = bu.children.length - 1; i >= 0; i--) {
+        document.getElementById("button" + i).addEventListener("click", checkList);
 
+    }
+}
 
+function checkList(): void {
+    let activeButton = document.querySelector("button:hover");
+    let activeID = activeButton.id.slice(-1);
+    //let content: string = document.getElementById("button" + satzProgress).innerText;
+    let punkte: number = 0;
+
+    if (parseInt(activeID) == satzProgress) {
+        punkte++;
+        satzProgress++;
+        document.querySelector("#points").innerHTML = String(punkte);
+    }
+    else {
+        punkte--;
+        document.querySelector("#points").innerHTML = String(punkte);
+
+    }
+}
+
+function ausgabeSatz(): void {
+    satzGenerator(language);
+    wortGenerator();
+}
+
+ausgabeSatz();
