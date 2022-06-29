@@ -133,7 +133,8 @@ function satzGenerator(fremdsprache: string): void {
     let deutsch: string[] = satz.deutsch;
     //"sprache" als leere Liste definiert
     let sprache: string[] = [];
-    
+
+    //"sprache" wird mit Satz aus ausgewählter Sprache "gefüllt"
     if (fremdsprache == "es") {
         sprache = satz.spanisch;
     }
@@ -150,12 +151,12 @@ function satzGenerator(fremdsprache: string): void {
 
 
 
-function wortGenerator (): void {
+function wortGenerator(): void {
     let worte: string[] = shuffleList(currentSentence);
-     
-    for (let index = 0; index < worte.length; index++) {
-        document.querySelector("#buttons").innerHTML
-        
-     }
- 
+
+    for (let index: number = 0; index < worte.length; index++) {
+        document.querySelector("#buttons").innerHTML = "<button id=\"button" + index + "\">" + worte[index] + "</button>";
+
+    }
+
 }
