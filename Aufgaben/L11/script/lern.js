@@ -133,7 +133,7 @@ function wortGenerator() {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\">" + currentSentence[index] + "</button>";
         //document.querySelector("#button" + index).addEventListener("click", checkList);
     }
-    //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu lassen
+    //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu
     let ul = document.querySelector("#buttons");
     for (let i = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);
@@ -150,8 +150,9 @@ function wortGenerator() {
 }
 function Listener() {
     let bu = document.querySelector("#buttons");
-    for (let i = bu.children.length - 1; i >= 0; i--) {
-        document.getElementById("button" + i).addEventListener("click", checkList);
+    for (let i = bu.children.length; i >= 0; i--) {
+        let id = i - 1;
+        document.getElementById("button" + id).addEventListener("click", checkList);
     }
 }
 function checkList() {
