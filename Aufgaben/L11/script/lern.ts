@@ -53,9 +53,9 @@ let sammlung: Satz[] = [
     },
 
     {
-        deutsch: ["Das", "Leben", "ist", "wie", "eine", "Schachtel", "Pralinen,", "man", "weiß", "nie", "was", "man", "kriegt."],
-        spanisch: ["La", "vida", "es", "como", "una", "caja", "de bombones,", "nunca", "sabes lo", "que te va", "a tocar"],
-        ukrainisch: []
+        deutsch: ["Ein", "Verstand", "braucht", "Bücher,", "wie", "ein", "Schwert", "den", "Schleifstein." ],
+        spanisch: ["Una", "mente", "necesita", "libros", "como", "una", "espada", "necesita", "una", "piedra", "de", "afilar."],
+        ukrainisch: ["Розуму", "потрібні", "книги,", "як", "меч", "потрібен", "точильний", "камінь."]
     },
 
     {
@@ -155,7 +155,7 @@ function satzGenerator(fremdsprache: string): void {
         sprache = satz.spanisch;
     }
     else if (fremdsprache == "ua") {
-        //sprache = satz.ukrainisch;
+        sprache = satz.ukrainisch;
     }
 
     //Variable "currentSentence" wird Satz in ausgewählter Sprache übergeben
