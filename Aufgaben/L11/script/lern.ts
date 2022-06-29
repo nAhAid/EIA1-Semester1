@@ -3,6 +3,7 @@
 interface Satz {
     deutsch: string[];
     spanisch: string[];
+    ukrainisch: string[];
 }
 
 //Für jedes Objekt ein Interface
@@ -11,78 +12,92 @@ let sammlung: Satz[] = [
 
     {
         deutsch: ["Wie", "heißt", "du?"],
-        spanisch: ["¿Cuál", "es", "su nombre?"]
+        spanisch: ["¿Cuál", "es", "su nombre?"],
+        ukrainisch: ["Як", "вас", "звати?"]
     },
 
     {
         deutsch: ["Ich", "liebe", "programmieren."],
-        spanisch: ["me", "encanta", "programar."]
-
+        spanisch: ["me", "encanta", "programar."],
+        ukrainisch: ["я", "люблю", "програмувати"]
     },
 
     {
         deutsch: ["Ich", "mag", "Brezeln."],
-        spanisch: ["me", "gustan", "los pretzels."]
+        spanisch: ["me", "gustan", "los pretzels."],
+        ukrainisch: ["я", "люблю", "кренделі"]
     },
 
     {
-        deutsch: ["Luke", "ich", "bin", "dein", "Vater."],
-        spanisch: ["Luke", "yo", "soy", "tu", "padre."]
+        deutsch: ["Luke,", "ich", "bin", "dein", "Vater."],
+        spanisch: ["Luke,", "yo", "soy", "tu", "padre."],
+        ukrainisch: ["Лука,", "я", "твій", "батько"]
     },
 
     {
         deutsch: ["Chantal,", "heul", "leise!"],
-        spanisch: ["¡Chantal,", "llora", "en silencio!"]
+        spanisch: ["¡Chantal,", "llora", "en silencio!"],
+        ukrainisch: ["Шанталь,", "плач", "тихо"]
     },
 
     {
         deutsch: ["Möge", "die", "Macht", "mit", "dir", "sein!"],
-        spanisch: ["¡Que", "la", "fuerza", "esté", "con", "usted!"]
+        spanisch: ["¡Que", "la", "fuerza", "esté", "con", "usted!"],
+        ukrainisch: ["Нехай", "сила", "буде", "з", "тобою", "!"]
     },
 
     {
         deutsch: ["Nach", "Hause", "telefonieren!"],
-        spanisch: ["Para", "llamar", "a", "casa!"]
+        spanisch: ["Para", "llamar", "a", "casa!"],
+        ukrainisch: ["Щоб", "подзвонити", "додому!"]
     },
 
     {
         deutsch: ["Das", "Leben", "ist", "wie", "eine", "Schachtel", "Pralinen,", "man", "weiß", "nie", "was", "man", "kriegt."],
-        spanisch: ["La", "vida", "es", "como", "una", "caja", "de bombones,", "nunca", "sabes lo", "que te va", "a tocar"]
+        spanisch: ["La", "vida", "es", "como", "una", "caja", "de bombones,", "nunca", "sabes lo", "que te va", "a tocar"],
+        ukrainisch: []
     },
 
     {
         deutsch: ["Dumm", "ist", "der,", "der", "dummes", "tut."],
-        spanisch: ["Tonto", "es", "el", "que", "hace", "tonterías."]
+        spanisch: ["Tonto", "es", "el", "que", "hace", "tonterías."],
+        ukrainisch: ["Тупий", "той,", "хто", "робить", "дурні", "речі"]
     },
 
     {
         deutsch: ["Yippie-Ya-Yeah,", "Schweinebacke"],
-        spanisch: ["¡Yippie-Ya-Sí,", "mejilla de cerdo!"]
+        spanisch: ["¡Yippie-Ya-Sí,", "mejilla de cerdo!"],
+        ukrainisch: ["Юпі-я-так,", "свиняча щока"]
     },
 
     {
         deutsch: ["Mein", "Name", "ist", "Bond.", "James", "Bond."],
-        spanisch: ["Mi", "nombre", "es", "Bond.", "James", "Bond"]
+        spanisch: ["Mi", "nombre", "es", "Bond.", "James", "Bond"],
+        ukrainisch: ["мене", "звати", "Бонд", ".", "Джеймс", "Бонд."]
     },
 
     {
         deutsch: ["Ich", "bin", "der", "König", "der", "Welt!"],
-        spanisch: ["¡Soy", "el", "rey", "del", "mundo!"]
+        spanisch: ["¡Soy", "el", "rey", "del", "mundo!"],
+        ukrainisch: ["Я", "король", "світу."]
     },
 
     {
         deutsch: ["Lauf", "Forrest!", "Lauf!"],
-        spanisch: ["¡Corre", "Forrest!", "¡correr!"]
+        spanisch: ["¡Corre", "Forrest!", "¡correr!"],
+        ukrainisch: ["світу", "Форрест!", "біжи!"]
     },
 
     {
         deutsch: ["Für", "Frodo"],
-        spanisch: ["¡Por", "Frodo"]
+        spanisch: ["¡Por", "Frodo"],
+        ukrainisch: ["За", "Фродо!"]
     },
 
     {
         deutsch: ["Der", "Winter", "naht!"],
-        spanisch: ["¡Viene", "el", "invierno!"]
+        spanisch: ["¡Viene", "el", "invierno!"],
+        ukrainisch: ["Зима", "наближається!"]
     }
 
 ];
