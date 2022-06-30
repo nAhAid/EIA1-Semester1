@@ -166,7 +166,7 @@ function wortGenerator() {
 } */
 function checkPunkte() {
     if (punkte < 0) {
-        window.location.href = "failed.html?lang=" + langLern + "diff=" + diffLern;
+        window.location.href = "failed.html?lang=" + langLern + "&diff=" + diffLern;
     }
     else {
         return;
@@ -203,7 +203,7 @@ function ausgabeSatz() {
         satzGenerator(language);
         wortGenerator();
     }
-    else {
+    else if (schwierigkeit < satzCount) {
         window.location.href = "bestanden.html?lang=" + langLern + "&points=" + punkte;
     }
 }
