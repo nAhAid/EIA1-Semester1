@@ -164,6 +164,8 @@ else if (langLern == "ua") {
     language = "ua";
 }
 document.querySelector("h1").innerHTML = spracheLern;
+document.querySelector(".lang").innerHTML = spracheLern;
+
 
 
 function satzGenerator(fremdsprache: string): void {

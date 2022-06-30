@@ -75,8 +75,8 @@ h1 {
     border-image-slice: 0.5;
     color: red;
     outline: none;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 
 }
 
@@ -99,19 +99,19 @@ h1 {
     -webkit-box-sizing: border-box;
     background-color: #e7eef1;
     border: 3px solid transparent;
-    border-image: linear-gradient(to top right, blue, yellow);
+    border-image: linear-gradient(to top right, yellow, blue);
     border-image-slice: 0.5;
     color: blue;
     outline: none;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 #ukrainisch:hover {
     border: 3px solid transparent;
-    border-image: linear-gradient(to top right, blue, yellow);
+    border-image: linear-gradient(to top right, yellow, blue);
     border-image-slice: 1;
     background-size: 100%;
-    background-image: linear-gradient(to top right, blue, yellow);
+    background-image: linear-gradient(to top right, yellow, blue);
     color: white;
 }
 

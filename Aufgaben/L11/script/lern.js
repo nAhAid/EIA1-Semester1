@@ -122,6 +122,7 @@ else if (langLern == "ua") {
     language = "ua";
 }
 document.querySelector("h1").innerHTML = spracheLern;
+document.querySelector(".lang").innerHTML = spracheLern;
 function satzGenerator(fremdsprache) {
     //".pop" ruft letztes Listen-Element auf und entfernt es aus der Liste => Sätze werden nicht mehrmals aufgerufen.
     let satz = sammlung.pop();
