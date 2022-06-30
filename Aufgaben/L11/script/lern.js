@@ -175,8 +175,9 @@ function checkList() {
     }
     else {
         punkte--;
-        document.querySelector("#points").innerHTML = String(punkte);
+        document.querySelector("#points").innerHTML = String(punkte) + " ";
         checkPunkte();
+        alert("Leider Falsch");
     }
 }
 function clear() {

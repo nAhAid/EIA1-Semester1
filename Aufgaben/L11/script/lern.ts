@@ -147,7 +147,7 @@ function shuffleList(list: any[]): any[] {
     return list
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value);
+        .map(({ value }) => value); 
 
 }
 //Beim aufrufen der Funktion shuffleList, wird das Array "sammlung" neu zusammen gewürfelt
@@ -237,8 +237,9 @@ function checkList(): void {
     }
     else {
         punkte--;
-        document.querySelector("#points").innerHTML = String(punkte);
+        document.querySelector("#points").innerHTML = String(punkte) + " ";
         checkPunkte();
+        alert("Leider Falsch");
 
     }
 }
