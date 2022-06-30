@@ -340,7 +340,6 @@ function checkSatz(): void {
 
     //if-Bedingung trifft zu, wenn geclicktes Wort das letzte war.
     if (satzProgress >= currentSentence.length) {
-        checkList();
         satzCount++;
         ausgabeSatz();
         satzProgress = 0;
