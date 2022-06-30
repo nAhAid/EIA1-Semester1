@@ -93,7 +93,12 @@ let diffLern = parseInt(queryParamsLern.get("diff"));
 let spracheLern = langLern;
 let stufeLern = diffLern;
 let language = "";
+//Variable um Fortschritt der geklickten Wörter im Satz zu speichern.
 let satzProgress = 0;
+//Variable für if-Bedingung für anzahl der Durchläufe
+let schwierigkeit = stufeLern * 5;
+//Variable zum zählen der Sätze
+let satzCount = 0;
 //if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (langLern == "es") {
     spracheLern = "Spanisch";
@@ -130,7 +135,7 @@ function satzGenerator(fremdsprache) {
 }
 function wortGenerator() {
     for (let index = 0; index < currentSentence.length; index++) {
-        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\">" + currentSentence[index] + "</button>";
+        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\">" + currentSentence[index] + "</button>";
         //document.querySelector("#button" + index).addEventListener("click", checkList);
     }
     //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu
@@ -138,7 +143,6 @@ function wortGenerator() {
     for (let i = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
-    Listener();
     /*  //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
      let worte: string[] = shuffleList(currentSentence);
      //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
@@ -148,18 +152,19 @@ function wortGenerator() {
  
      } */
 }
-function Listener() {
-    let bu = document.querySelector("#buttons");
-    for (let i = bu.children.length; i >= 0; i--) {
-        let id = i - 1;
+/* function Listener(): void {
+    let bu: HTMLElement = document.querySelector("#buttons");
+    for (let i: number = bu.children.length; i >= 0; i--) {
+        let id: number = i - 1;
         document.getElementById("button" + id).addEventListener("click", checkList);
+
     }
-}
+} */
+let punkte = 0;
 function checkList() {
     let activeButton = document.querySelector("button:hover");
     let activeID = activeButton.id.slice(-1);
     //let content: string = document.getElementById("button" + satzProgress).innerText;
-    let punkte = 0;
     if (parseInt(activeID) == satzProgress) {
         punkte++;
         satzProgress++;
@@ -170,9 +175,29 @@ function checkList() {
         document.querySelector("#points").innerHTML = String(punkte);
     }
 }
+function clear() {
+    document.querySelector("#satz").innerHTML = "";
+    document.querySelector("#buttons").innerHTML = "";
+}
 function ausgabeSatz() {
-    satzGenerator(language);
-    wortGenerator();
+    if (schwierigkeit >= satzCount) {
+        clear();
+        satzGenerator(language);
+        wortGenerator();
+    }
+    else {
+        window.location.href = "bestanden.html?points=" + punkte;
+    }
 }
 ausgabeSatz();
+function checkSatz() {
+    if (satzProgress < currentSentence.length) {
+        checkList();
+    }
+    else if (satzProgress == currentSentence.length) {
+        ausgabeSatz();
+        satzProgress = 0;
+        satzCount++;
+    }
+}
 //# sourceMappingURL=lern.js.map

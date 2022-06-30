@@ -126,7 +126,16 @@ let stufeLern: number = diffLern;
 
 let language: string = "";
 
+//Variable um Fortschritt der geklickten Wörter im Satz zu speichern.
 let satzProgress: number = 0;
+
+//Variable für if-Bedingung für anzahl der Durchläufe
+let schwierigkeit: number = stufeLern * 5;
+
+
+//Variable zum zählen der Sätze
+let satzCount: number = 0;
+
 
 //if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (langLern == "es") {
@@ -178,7 +187,7 @@ function satzGenerator(fremdsprache: string): void {
 
 function wortGenerator(): void {
     for (let index: number = 0; index < currentSentence.length; index++) {
-        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\">" + currentSentence[index] + "</button>";
+        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\">" + currentSentence[index] + "</button>";
         //document.querySelector("#button" + index).addEventListener("click", checkList);
 
     }
@@ -188,8 +197,6 @@ function wortGenerator(): void {
     for (let i: number = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
-
-    Listener();
 
     /*  //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
      let worte: string[] = shuffleList(currentSentence);
@@ -202,20 +209,21 @@ function wortGenerator(): void {
 
 
 }
-function Listener(): void {
+/* function Listener(): void {
     let bu: HTMLElement = document.querySelector("#buttons");
     for (let i: number = bu.children.length; i >= 0; i--) {
         let id: number = i - 1;
         document.getElementById("button" + id).addEventListener("click", checkList);
 
     }
-}
+} */
+let punkte: number = 0;
 
 function checkList(): void {
-    let activeButton = document.querySelector("button:hover");
-    let activeID = activeButton.id.slice(-1);
+    let activeButton: HTMLElement = document.querySelector("button:hover");
+    let activeID: string = activeButton.id.slice(-1);
     //let content: string = document.getElementById("button" + satzProgress).innerText;
-    let punkte: number = 0;
+
 
     if (parseInt(activeID) == satzProgress) {
         punkte++;
@@ -229,9 +237,38 @@ function checkList(): void {
     }
 }
 
+function clear(): void {
+    document.querySelector("#satz").innerHTML = "";
+    document.querySelector("#buttons").innerHTML = "";
+
+}
+
 function ausgabeSatz(): void {
-    satzGenerator(language);
-    wortGenerator();
+
+    if (schwierigkeit >= satzCount) {
+        clear();
+        satzGenerator(language);
+        wortGenerator();
+    }
+
+    else {
+        window.location.href = "bestanden.html?points=" + punkte;
+    }
+
+
 }
 
 ausgabeSatz();
+
+function checkSatz(): void {
+    if (satzProgress < currentSentence.length) {
+        checkList();
+    }
+
+    else if (satzProgress == currentSentence.length) {
+        ausgabeSatz();
+        satzProgress = 0;
+        satzCount++;
+    }
+
+}
