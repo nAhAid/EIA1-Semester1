@@ -138,7 +138,6 @@ function satzGenerator(fremdsprache) {
 function wortGenerator() {
     for (let index = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
-        //document.querySelector("#button" + index).addEventListener("click", checkList);
     }
     //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu
     let ul = document.querySelector("#buttons");
