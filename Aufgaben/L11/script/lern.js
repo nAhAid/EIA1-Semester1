@@ -155,7 +155,7 @@ function satzGenerator(fremdsprache) {
 function wortGenerator() {
     //for-Schleife, die solange über das curretnSentence-Array loopt bis jedes Element einen eigenen Button hat. Jeder Button wird mit einer fortlaufenden Id belegt. Zuweisung der CSS-Eigenschaft "false"
     for (let index = 0; index < currentSentence.length; index++) {
-        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
+        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz(" + index + ") \" class=\"" + style + "\">" + currentSentence[index] + "</button>";
     }
     //Zugriff auf Objekt-Liste je nach ausgewählter Sprache
     if (langLern == "es") {
@@ -171,7 +171,7 @@ function wortGenerator() {
     //Zufalls "zahl" sorgt für zufälliges auftauchen der Fake-Wörter
     let troll = fakeSprache[zahl];
     //Generiert einen Button für die Fake-Wörter, Id so gewählt, dass Funktion "checkList" in else-Anweisung springt
-    document.querySelector("#buttons").innerHTML += "<button id=\"buttonX\" onClick = \"checkSatz()\" class=\"" + style + "\">" + troll + "</button>";
+    document.querySelector("#buttons").innerHTML += "<button id=\"buttonX\" onClick = \"checkSatz(10000000)\" class=\"" + style + "\">" + troll + "</button>";
     //Variable, vom Typ HTML-Element, um darüber auf die child-Elemente zugreifen zu können.
     let ul = document.querySelector("#buttons");
     //for-Schleife um erstellte Buttons in zufälliger Reihenfolge im HTML anzeigen zu
@@ -189,24 +189,20 @@ function checkPunkte() {
         return;
     }
 }
-function checkList() {
-    //activeButton speichert den Button, über den gehovert wird => Annahme: Maus braucht länger zum Button "verlassen", als TS um Funktion "checkList" auszuführen
-    let activeButton = document.querySelector("button:hover");
-    //activeID speichert die letzte Stelle der Id, von "activeButton". Mit "slice(-1)" quasi "abgeschnitten"
-    let activeID = activeButton.id.slice(-1);
-    //if-Bedingung prüft ob die activeID dem "satzProgress" entspricht, "satzProgress" ist anfangs auf Null gesetzt. => Erstes array-Element immer = 0, erste Zahl von generiertem Button daher immer gleich Null.
-    if (parseInt(activeID) == satzProgress) {
+function checkList(id) {
+    //if-Bedingung prüft ob die id dem "satzProgress" entspricht, "satzProgress" ist anfangs auf Null gesetzt. => Erstes array-Element immer = 0, erste Zahl von generiertem Button daher immer gleich Null.
+    if (id == satzProgress) {
         //CSS: Entfernt class= false
-        document.querySelector("button:hover").classList.remove(String(style));
+        document.querySelector("#button" + id).classList.remove(String(style));
         //Boolean "style" wird umgedreht, also style = true
         style = !style;
         //CSS: Fügt neue class = true hinzu
-        document.querySelector("button:hover").classList.add(String(style));
+        document.querySelector("#button" + id).classList.add(String(style));
         //Boolean "style" wird wieder umgedreht, um beim nächsten Click wieder von vorne anfangen zu können
         style = !style;
         //Variable zum Punkte Zählen, wird um "+1" hochgezählt.
         punkte++;
-        //Neuer Üunktestand wird ins HTML geschrieben
+        //Neuer Punktestand wird ins HTML geschrieben
         document.querySelector("#points").innerHTML = String(punkte) + " ";
         //Inhalt des geklickten Buttons wird indirekt ins HTML geschrieben:
         //satzProgress = Stelle im aktuellen Satz-Array, durch "currentSentence[satzProgress]" wird auf das ursrpüngliche Element zugegriffen
@@ -249,10 +245,10 @@ function ausgabeSatz() {
 //Funktionsaufruf zu Beginn, um zum ersten Mal einen Satz zu laden
 ausgabeSatz();
 //Funktion die beim Click auf einen Button aufgerufen wird.
-function checkSatz() {
+function checkSatz(id) {
     //if-Bedingung trifft zu, wenn geclicktes Wort noch nicht das letzte war
     if (satzProgress < currentSentence.length) {
-        checkList();
+        checkList(id);
     }
     //if-Bedingung trifft zu, wenn geclicktes Wort das letzte war.
     if (satzProgress >= currentSentence.length) {
