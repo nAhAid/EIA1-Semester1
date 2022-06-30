@@ -76,6 +76,28 @@ let sammlung = [
         ukrainisch: ["Зима", "наближається!"]
     }
 ];
+//Mit URLSearschParams werden alle in der URL mitgegebenen Parameter abgerufen
+let queryParamsLern = new URLSearchParams(window.location.search);
+//In folgenden zwei Zeilen werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
+let langLern = queryParamsLern.get("lang");
+let diffLern = parseInt(queryParamsLern.get("diff"));
+//Leere Variable um später Sprache in ausgeschriebener Form zu speichern
+let spracheLern = "";
+let stufeLern = diffLern;
+//Variable um Sprachkürzel zu speichern
+let language = "";
+//Variable um Fortschritt der geklickten Wörter im Satz zu speichern.
+let satzProgress = 0;
+//Variable für if-Bedingung für Anzahl der Durchläufe, *5 um 5/10/15 Durchläufe zu erreichen
+let schwierigkeit = stufeLern * 5;
+//Variable zum zählen der Sätze
+let satzCount = 0;
+//Variable um Reihenfolge der Wörter, vom aktuellen Satz funktionsübergreifend zu nutzen
+let currentSentence = [];
+//Variable um aktuelle Punktanzahl zu zählen
+let punkte = 0;
+//Variable um CSS der geklickten Buttons zu ändern
+let style = false;
 //Funktion zum "mischen" von Inhalten der übergebenen Liste
 function shuffleList(list) {
     return list
@@ -85,21 +107,7 @@ function shuffleList(list) {
 }
 //Beim aufrufen der Funktion shuffleList, wird das Array "sammlung" neu zusammen gewürfelt
 sammlung = shuffleList(sammlung);
-//In Zeile zwei werden alle in der URL mitgegebenen Parameter abgerufen
-let queryParamsLern = new URLSearchParams(window.location.search);
-//In folgenden zwei Zeilen werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
-let langLern = queryParamsLern.get("lang");
-let diffLern = parseInt(queryParamsLern.get("diff"));
-let spracheLern = langLern;
-let stufeLern = diffLern;
-let language = "";
-//Variable um Fortschritt der geklickten Wörter im Satz zu speichern.
-let satzProgress = 0;
-//Variable für if-Bedingung für anzahl der Durchläufe
-let schwierigkeit = stufeLern * 5;
-//Variable zum zählen der Sätze
-let satzCount = 0;
-//if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
+//if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (langLern == "es") {
     spracheLern = "Spanisch";
     language = "es";
@@ -109,19 +117,9 @@ else if (langLern == "ua") {
     language = "ua";
 }
 document.querySelector("h1").innerHTML = spracheLern;
-let currentCount = 0;
-//Variable um Reihenfolge der Wörter funktionsübergreifend zu nutzen
-let currentSentence = [];
-//Variable um geklickte Wort-Reihenfolge zu speichern. Um später mit Wort-Reihenfolge von "currentSentence" zu vergleichen
-let currentClick = [];
-//Variable um aktuelle Punktanzahl zu zählen
-let punkte = 0;
-//Variable um CSS der geklickten Buttons zu ändern
-let style = false;
 function satzGenerator(fremdsprache) {
     //".pop" ruft letztes Listen-Element auf und entfernt es aus der Liste => Sätze werden nicht mehrmals aufgerufen.
     let satz = sammlung.pop();
-    let deutsch = satz.deutsch;
     //"sprache" als leere Liste definiert
     let sprache = [];
     //"sprache" wird mit Satz aus ausgewählter Sprache "gefüllt"
@@ -147,23 +145,7 @@ function wortGenerator() {
     for (let i = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
-    /*  //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
-     let worte: string[] = shuffleList(currentSentence);
-     //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
-     for (let index: number = 0; index < worte.length; index++) {
-         document.querySelector("#buttons").innerHTML += "<button>" + worte[index] + "</button>";
-         document.querySelector("#button" + index).addEventListener("click", () => { checkList() });
- 
-     } */
 }
-/* function Listener(): void {
-    let bu: HTMLElement = document.querySelector("#buttons");
-    for (let i: number = bu.children.length; i >= 0; i--) {
-        let id: number = i - 1;
-        document.getElementById("button" + id).addEventListener("click", checkList);
-
-    }
-} */
 function checkPunkte() {
     if (punkte < 0) {
         window.location.href = "failed.html?lang=" + langLern + "&diff=" + diffLern;

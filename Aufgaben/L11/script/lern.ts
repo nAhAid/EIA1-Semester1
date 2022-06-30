@@ -102,6 +102,39 @@ let sammlung: Satz[] = [
 
 ];
 
+
+//Mit URLSearschParams werden alle in der URL mitgegebenen Parameter abgerufen
+let queryParamsLern: URLSearchParams = new URLSearchParams(window.location.search);
+//In folgenden zwei Zeilen werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
+let langLern: string = queryParamsLern.get("lang");
+let diffLern: number = parseInt(queryParamsLern.get("diff"));
+
+//Leere Variable um später Sprache in ausgeschriebener Form zu speichern
+let spracheLern: string = "";
+let stufeLern: number = diffLern;
+
+//Variable um Sprachkürzel zu speichern
+let language: string = "";
+
+//Variable um Fortschritt der geklickten Wörter im Satz zu speichern.
+let satzProgress: number = 0;
+
+//Variable für if-Bedingung für Anzahl der Durchläufe, *5 um 5/10/15 Durchläufe zu erreichen
+let schwierigkeit: number = stufeLern * 5;
+
+//Variable zum zählen der Sätze
+let satzCount: number = 0;
+
+//Variable um Reihenfolge der Wörter, vom aktuellen Satz funktionsübergreifend zu nutzen
+let currentSentence: string[] = [];
+
+//Variable um aktuelle Punktanzahl zu zählen
+let punkte: number = 0;
+
+//Variable um CSS der geklickten Buttons zu ändern
+let style: boolean = false;
+
+
 //Funktion zum "mischen" von Inhalten der übergebenen Liste
 function shuffleList(list: any[]): any[] {
 
@@ -115,29 +148,7 @@ function shuffleList(list: any[]): any[] {
 sammlung = shuffleList(sammlung);
 
 
-//In Zeile zwei werden alle in der URL mitgegebenen Parameter abgerufen
-let queryParamsLern: URLSearchParams = new URLSearchParams(window.location.search);
-//In folgenden zwei Zeilen werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
-let langLern: string = queryParamsLern.get("lang");
-let diffLern: number = parseInt(queryParamsLern.get("diff"));
-
-let spracheLern: string = langLern;
-let stufeLern: number = diffLern;
-
-let language: string = "";
-
-//Variable um Fortschritt der geklickten Wörter im Satz zu speichern.
-let satzProgress: number = 0;
-
-//Variable für if-Bedingung für anzahl der Durchläufe
-let schwierigkeit: number = stufeLern * 5;
-
-
-//Variable zum zählen der Sätze
-let satzCount: number = 0;
-
-
-//if if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
+//if-else Bedingung, um ausgewählte Sprache ausgeben zu lassen
 if (langLern == "es") {
     spracheLern = "Spanisch";
     language = "es";
@@ -149,25 +160,9 @@ else if (langLern == "ua") {
 document.querySelector("h1").innerHTML = spracheLern;
 
 
-let currentCount: number = 0;
-
-//Variable um Reihenfolge der Wörter funktionsübergreifend zu nutzen
-let currentSentence: string[] = [];
-
-//Variable um geklickte Wort-Reihenfolge zu speichern. Um später mit Wort-Reihenfolge von "currentSentence" zu vergleichen
-let currentClick: string[] = [];
-
-//Variable um aktuelle Punktanzahl zu zählen
-let punkte: number = 0;
-
-//Variable um CSS der geklickten Buttons zu ändern
-let style: boolean = false;
-
-
 function satzGenerator(fremdsprache: string): void {
     //".pop" ruft letztes Listen-Element auf und entfernt es aus der Liste => Sätze werden nicht mehrmals aufgerufen.
     let satz: Satz = sammlung.pop();
-    let deutsch: string[] = satz.deutsch;
     //"sprache" als leere Liste definiert
     let sprache: string[] = [];
 
@@ -190,7 +185,6 @@ function satzGenerator(fremdsprache: string): void {
 }
 
 
-
 function wortGenerator(): void {
     for (let index: number = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
@@ -204,26 +198,7 @@ function wortGenerator(): void {
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
 
-    /*  //Aufruf der Funktion "shuffleList" um "currentSentence" Inhalte in zufälliger Reihenfolge ausgeben zu lassen.
-     let worte: string[] = shuffleList(currentSentence);
-     //for Schleife, die über "worte" loopt und aus einzelnen strings Buttons mit fortlaufender id generiert.
-     for (let index: number = 0; index < worte.length; index++) {
-         document.querySelector("#buttons").innerHTML += "<button>" + worte[index] + "</button>";
-         document.querySelector("#button" + index).addEventListener("click", () => { checkList() });
- 
-     } */
-
-
 }
-/* function Listener(): void {
-    let bu: HTMLElement = document.querySelector("#buttons");
-    for (let i: number = bu.children.length; i >= 0; i--) {
-        let id: number = i - 1;
-        document.getElementById("button" + id).addEventListener("click", checkList);
-
-    }
-} */
-
 
 function checkPunkte(): void {
     if (punkte < 0) {
@@ -233,10 +208,6 @@ function checkPunkte(): void {
         return;
     }
 }
-
-
-
-
 
 
 function checkList(): void {
@@ -270,7 +241,7 @@ function clear(): void {
     document.querySelector("#ergebnis").innerHTML = "";
 
 }
-
+    
 function ausgabeSatz(): void {
 
     if (schwierigkeit >= satzCount) {
