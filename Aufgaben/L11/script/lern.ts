@@ -108,6 +108,18 @@ let sammlung: Satz[] = [
 
 ];
 
+interface Fake {
+    spanisch: string[];
+    ukrainisch: string[];
+}
+
+let fakeSammlung: Fake[] = [
+    {
+        spanisch: ["Queso", "Embutido", "papas fritas", "Cazuela", "madre", "país"],
+        ukrainisch: ["сир", "ковбаса", "картопля фрі", "Запіканка", "мати", "країна"]
+    }
+];
+
 
 //Mit URLSearschParams werden alle in der URL mitgegebenen Parameter abgerufen
 let queryParamsLern: URLSearchParams = new URLSearchParams(window.location.search);
@@ -140,6 +152,8 @@ let punkte: number = 0;
 //Variable um CSS der geklickten Buttons zu ändern
 let style: boolean = false;
 
+let fakeSprache: string[] = [];
+
 
 //Funktion zum "mischen" von Inhalten der übergebenen Liste
 function shuffleList(list: any[]): any[] {
@@ -147,7 +161,7 @@ function shuffleList(list: any[]): any[] {
     return list
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value); 
+        .map(({ value }) => value);
 
 }
 //Beim aufrufen der Funktion shuffleList, wird das Array "sammlung" neu zusammen gewürfelt
@@ -197,8 +211,24 @@ function wortGenerator(): void {
     for (let index: number = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
 
-
     }
+
+    if (langLern == "es") {
+        fakeSprache = fakeSammlung[0].spanisch;
+    }
+    else if (langLern == "ua") {
+        fakeSprache = fakeSammlung[0].ukrainisch;
+    }
+
+
+    let zalh: number = 1;
+    zahl = Math.random() * fakeSprache.length;
+    zahl = Math.round(zahl);
+    console.log(zahl);
+    let troll: string = fakeSprache[zahl];
+
+    document.querySelector("#buttons").innerHTML += "<button id=\"buttonX\" onClick = \"checkSatz()\" class=\"" + style + "\">" + troll + "</button>";
+
 
     //for-Schleife um erstellte Buttons in zufälliger Reihenfolge im HTML anzeigen zu
     let ul: HTMLElement = document.querySelector("#buttons");

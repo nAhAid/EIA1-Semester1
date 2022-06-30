@@ -81,6 +81,12 @@ let sammlung = [
         ukrainisch: ["я", "залізна", "людина"]
     }
 ];
+let fakeSammlung = [
+    {
+        spanisch: ["Queso", "Embutido", "papas fritas", "Cazuela", "madre", "país"],
+        ukrainisch: ["сир", "ковбаса", "картопля фрі", "Запіканка", "мати", "країна"]
+    }
+];
 //Mit URLSearschParams werden alle in der URL mitgegebenen Parameter abgerufen
 let queryParamsLern = new URLSearchParams(window.location.search);
 //In folgenden zwei Zeilen werden die abgerufenen Parameter in der Variable "langLern" und "diffLern" abgespeichert
@@ -103,6 +109,7 @@ let currentSentence = [];
 let punkte = 0;
 //Variable um CSS der geklickten Buttons zu ändern
 let style = false;
+let fakeSprache = [];
 //Funktion zum "mischen" von Inhalten der übergebenen Liste
 function shuffleList(list) {
     return list
@@ -145,6 +152,18 @@ function wortGenerator() {
     for (let index = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
     }
+    if (langLern == "es") {
+        fakeSprache = fakeSammlung[0].spanisch;
+    }
+    else if (langLern == "ua") {
+        fakeSprache = fakeSammlung[0].ukrainisch;
+    }
+    let zalh = 1;
+    zahl = Math.random() * fakeSprache.length;
+    zahl = Math.round(zahl);
+    console.log(zahl);
+    let troll = fakeSprache[zahl];
+    document.querySelector("#buttons").innerHTML += "<button id=\"buttonX\" onClick = \"checkSatz()\" class=\"" + style + "\">" + troll + "</button>";
     //for-Schleife um erstellte Buttons in zufälliger Reihenfolge im HTML anzeigen zu
     let ul = document.querySelector("#buttons");
     for (let i = ul.children.length; i >= 0; i--) {
