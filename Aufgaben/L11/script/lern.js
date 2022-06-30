@@ -114,6 +114,10 @@ let currentCount = 0;
 let currentSentence = [];
 //Variable um geklickte Wort-Reihenfolge zu speichern. Um später mit Wort-Reihenfolge von "currentSentence" zu vergleichen
 let currentClick = [];
+//Variable um aktuelle Punktanzahl zu zählen
+let punkte = 0;
+//Variable um CSS der geklickten Buttons zu ändern
+let style = false;
 function satzGenerator(fremdsprache) {
     //".pop" ruft letztes Listen-Element auf und entfernt es aus der Liste => Sätze werden nicht mehrmals aufgerufen.
     let satz = sammlung.pop();
@@ -133,7 +137,6 @@ function satzGenerator(fremdsprache) {
         document.querySelector("#satz").innerHTML += satz.deutsch[index] + " ";
     }
 }
-let style = false;
 function wortGenerator() {
     for (let index = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
@@ -161,7 +164,14 @@ function wortGenerator() {
 
     }
 } */
-let punkte = 0;
+function checkPunkte() {
+    if (punkte < 0) {
+        window.location.href = "failed.html?lang=" + langLern + "diff=" + diffLern;
+    }
+    else {
+        return;
+    }
+}
 function checkList() {
     let activeButton = document.querySelector("button:hover");
     let activeID = activeButton.id.slice(-1);
@@ -179,6 +189,7 @@ function checkList() {
     else {
         punkte--;
         document.querySelector("#points").innerHTML = String(punkte);
+        checkPunkte();
     }
 }
 function clear() {

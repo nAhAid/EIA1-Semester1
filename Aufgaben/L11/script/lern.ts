@@ -157,6 +157,12 @@ let currentSentence: string[] = [];
 //Variable um geklickte Wort-Reihenfolge zu speichern. Um später mit Wort-Reihenfolge von "currentSentence" zu vergleichen
 let currentClick: string[] = [];
 
+//Variable um aktuelle Punktanzahl zu zählen
+let punkte: number = 0;
+
+//Variable um CSS der geklickten Buttons zu ändern
+let style: boolean = false;
+
 
 function satzGenerator(fremdsprache: string): void {
     //".pop" ruft letztes Listen-Element auf und entfernt es aus der Liste => Sätze werden nicht mehrmals aufgerufen.
@@ -183,7 +189,7 @@ function satzGenerator(fremdsprache: string): void {
 
 }
 
-let style: boolean = false;
+
 
 function wortGenerator(): void {
     for (let index: number = 0; index < currentSentence.length; index++) {
@@ -217,7 +223,21 @@ function wortGenerator(): void {
 
     }
 } */
-let punkte: number = 0;
+
+
+function checkPunkte(): void {
+    if (punkte < 0) {
+        window.location.href = "failed.html?lang=" + langLern + "diff=" + diffLern;
+    }
+    else {
+        return;
+    }
+}
+
+
+
+
+
 
 function checkList(): void {
     let activeButton: HTMLElement = document.querySelector("button:hover");
@@ -239,6 +259,7 @@ function checkList(): void {
     else {
         punkte--;
         document.querySelector("#points").innerHTML = String(punkte);
+        checkPunkte();
 
     }
 }

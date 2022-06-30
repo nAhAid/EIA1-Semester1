@@ -15,6 +15,8 @@ else if (langFailed == "ua") {
 //Navigation zwischen HTML Dokumenten
 //if-Bedingung prüft, auf welchem HTML-Dokument der Browser gerade ist
 if (window.location.href.includes("failed.html")) {
+    
+    
     document.querySelector("#ja").addEventListener("click", () => {
 
         //In der URL werden zusätzliche Parameter mitgegeben. Eingeleitet durch "?". Parameter "lang" mit wert "es"
