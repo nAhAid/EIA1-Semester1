@@ -98,6 +98,12 @@ let sammlung: Satz[] = [
         deutsch: ["Der", "Winter", "naht!"],
         spanisch: ["¡Viene", "el", "invierno!"],
         ukrainisch: ["Зима", "наближається!"]
+    },
+
+    {
+        deutsch: ["Ich", "bin", "Iron", "Man"],
+        spanisch: ["Yo", "soy", "Iron", "Man"],
+        ukrainisch: ["я", "залізна", "людина"]
     }
 
 ];
@@ -188,7 +194,7 @@ function satzGenerator(fremdsprache: string): void {
 function wortGenerator(): void {
     for (let index: number = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
-        
+
 
     }
 
@@ -241,7 +247,7 @@ function clear(): void {
     document.querySelector("#ergebnis").innerHTML = "";
 
 }
-    
+
 function ausgabeSatz(): void {
 
     if (schwierigkeit >= satzCount) {
@@ -265,9 +271,10 @@ function checkSatz(): void {
     }
 
     else if (satzProgress >= currentSentence.length) {
+        satzCount++;
         ausgabeSatz();
         satzProgress = 0;
-        satzCount++;
+
     }
 
 }

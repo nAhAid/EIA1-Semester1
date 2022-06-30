@@ -74,6 +74,11 @@ let sammlung = [
         deutsch: ["Der", "Winter", "naht!"],
         spanisch: ["¡Viene", "el", "invierno!"],
         ukrainisch: ["Зима", "наближається!"]
+    },
+    {
+        deutsch: ["Ich", "bin", "Iron", "Man"],
+        spanisch: ["Yo", "soy", "Iron", "Man"],
+        ukrainisch: ["я", "залізна", "людина"]
     }
 ];
 //Mit URLSearschParams werden alle in der URL mitgegebenen Parameter abgerufen
@@ -194,9 +199,9 @@ function checkSatz() {
         checkList();
     }
     else if (satzProgress >= currentSentence.length) {
+        satzCount++;
         ausgabeSatz();
         satzProgress = 0;
-        satzCount++;
     }
 }
 //# sourceMappingURL=lern.js.map
