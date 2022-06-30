@@ -172,7 +172,7 @@ function checkList() {
         document.querySelector("button:hover").classList.add(String(style));
         style = !style;
         punkte++;
-        document.querySelector("#points").innerHTML = String(punkte);
+        document.querySelector("#points").innerHTML = String(punkte) + " ";
         document.querySelector("#ergebnis").innerHTML += currentSentence[satzProgress] + " ";
         satzProgress++;
     }
@@ -193,7 +193,7 @@ function ausgabeSatz() {
         wortGenerator();
     }
     else {
-        window.location.href = "bestanden.html?lang=" + langLern + "&points =" + punkte;
+        window.location.href = "bestanden.html?lang=" + langLern + "&points=" + punkte;
     }
 }
 ausgabeSatz();
