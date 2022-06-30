@@ -18,13 +18,13 @@ let sammlung: Satz[] = [
 
     {
         deutsch: ["Ich", "liebe", "programmieren."],
-        spanisch: ["me", "encanta", "programar."],
+        spanisch: ["Me", "encanta", "programar."],
         ukrainisch: ["я", "люблю", "програмувати"]
     },
 
     {
         deutsch: ["Ich", "mag", "Brezeln."],
-        spanisch: ["me", "gustan", "los pretzels."],
+        spanisch: ["Me", "gustan", "los pretzels."],
         ukrainisch: ["я", "люблю", "кренделі"]
     },
 
@@ -36,7 +36,7 @@ let sammlung: Satz[] = [
 
     {
         deutsch: ["Chantal,", "heul", "leise!"],
-        spanisch: ["¡Chantal,", "llora", "en silencio!"],
+        spanisch: ["¡Chantal,", "ilora", "en silencio!"],
         ukrainisch: ["Шанталь,", "плач", "тихо"]
     },
 
@@ -53,7 +53,7 @@ let sammlung: Satz[] = [
     },
 
     {
-        deutsch: ["Macht", "ist", "Macht"],
+        deutsch: ["Macht", "ist", "Macht."],
         spanisch: ["El poder", "es", "poder."],
         ukrainisch: ["влада", "є", "сила."]
     },
@@ -65,21 +65,21 @@ let sammlung: Satz[] = [
     },
 
     {
-        deutsch: ["Yippie-Ya-Yeah,", "Schweinebacke"],
+        deutsch: ["Yippie-Ya-Yeah,", "Schweinebacke!"],
         spanisch: ["¡Yippie-Ya-Sí,", "mejilla de cerdo!"],
         ukrainisch: ["Юпі-я-так,", "свиняча щока"]
     },
 
     {
         deutsch: ["Mein", "Name", "ist", "Bond.", "James", "Bond."],
-        spanisch: ["Mi", "nombre", "es", "Bond.", "James", "Bond"],
+        spanisch: ["Mi", "nombre", "es", "Bond.", "James", "Bond."],
         ukrainisch: ["мене", "звати", "Бонд", ".", "Джеймс", "Бонд."]
     },
 
     {
         deutsch: ["Ich", "bin", "der", "König", "der", "Welt!"],
         spanisch: ["¡Soy", "el", "rey", "del", "mundo!"],
-        ukrainisch: ["Я", "король", "світу."]
+        ukrainisch: ["Я", "король", "світу!"]
     },
 
     {
@@ -89,8 +89,8 @@ let sammlung: Satz[] = [
     },
 
     {
-        deutsch: ["Für", "Frodo"],
-        spanisch: ["¡Por", "Frodo"],
+        deutsch: ["Für", "Frodo!"],
+        spanisch: ["¡Por", "Frodo!"],
         ukrainisch: ["За", "Фродо!"]
     },
 
