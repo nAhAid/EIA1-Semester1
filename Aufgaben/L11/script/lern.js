@@ -36,9 +36,9 @@ let sammlung = [
         ukrainisch: ["Щоб", "подзвонити", "додому!"]
     },
     {
-        deutsch: ["Ein", "Verstand", "braucht", "Bücher,", "wie", "ein", "Schwert", "den", "Schleifstein."],
-        spanisch: ["Una", "mente", "necesita", "libros", "como", "una", "espada", "necesita", "una", "piedra", "de", "afilar."],
-        ukrainisch: ["Розуму", "потрібні", "книги,", "як", "меч", "потрібен", "точильний", "камінь."]
+        deutsch: ["Macht", "ist", "Macht"],
+        spanisch: ["El poder", "es", "poder."],
+        ukrainisch: ["влада", "є", "сила."]
     },
     {
         deutsch: ["Dumm", "ist", "der,", "der", "dummes", "tut."],
@@ -201,7 +201,7 @@ function checkSatz() {
     if (satzProgress < currentSentence.length) {
         checkList();
     }
-    else if (satzProgress == currentSentence.length) {
+    else if (satzProgress >= currentSentence.length) {
         ausgabeSatz();
         satzProgress = 0;
         satzCount++;
