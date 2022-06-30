@@ -183,11 +183,11 @@ function satzGenerator(fremdsprache: string): void {
 
 }
 
-
+let style: boolean = false;
 
 function wortGenerator(): void {
     for (let index: number = 0; index < currentSentence.length; index++) {
-        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\">" + currentSentence[index] + "</button>";
+        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
         //document.querySelector("#button" + index).addEventListener("click", checkList);
 
     }
@@ -226,9 +226,15 @@ function checkList(): void {
 
 
     if (parseInt(activeID) == satzProgress) {
+        document.querySelector("button:hover").classList.remove(String(style));
+        style = !style;
+        document.querySelector("button:hover").classList.add(String(style));
+        style = !style;
         punkte++;
-        satzProgress++;
         document.querySelector("#points").innerHTML = String(punkte);
+        document.querySelector("#ergebnis").innerHTML += currentSentence[satzProgress] + " ";
+        satzProgress++;
+
     }
     else {
         punkte--;
@@ -240,6 +246,7 @@ function checkList(): void {
 function clear(): void {
     document.querySelector("#satz").innerHTML = "";
     document.querySelector("#buttons").innerHTML = "";
+    document.querySelector("#ergebnis").innerHTML = "";
 
 }
 

@@ -133,9 +133,10 @@ function satzGenerator(fremdsprache) {
         document.querySelector("#satz").innerHTML += satz.deutsch[index] + " ";
     }
 }
+let style = false;
 function wortGenerator() {
     for (let index = 0; index < currentSentence.length; index++) {
-        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\">" + currentSentence[index] + "</button>";
+        document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
         //document.querySelector("#button" + index).addEventListener("click", checkList);
     }
     //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu
@@ -166,9 +167,14 @@ function checkList() {
     let activeID = activeButton.id.slice(-1);
     //let content: string = document.getElementById("button" + satzProgress).innerText;
     if (parseInt(activeID) == satzProgress) {
+        document.querySelector("button:hover").classList.remove(String(style));
+        style = !style;
+        document.querySelector("button:hover").classList.add(String(style));
+        style = !style;
         punkte++;
-        satzProgress++;
         document.querySelector("#points").innerHTML = String(punkte);
+        document.querySelector("#ergebnis").innerHTML += currentSentence[satzProgress] + " ";
+        satzProgress++;
     }
     else {
         punkte--;
@@ -178,6 +184,7 @@ function checkList() {
 function clear() {
     document.querySelector("#satz").innerHTML = "";
     document.querySelector("#buttons").innerHTML = "";
+    document.querySelector("#ergebnis").innerHTML = "";
 }
 function ausgabeSatz() {
     if (schwierigkeit >= satzCount) {
