@@ -58,7 +58,13 @@ h1 {
 }
 
 .score {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
     text-align: center;
+    font-style: bold;
+    margin-top: 50px;
+   color: yellow;
+
 }
 
 #spanisch {
@@ -155,4 +161,59 @@ p {
     background-image: linear-gradient(to bottom , rgb(251, 253, 221), rgba(255, 255, 0, 0.779));
     background-blend-mode: darken;
 }
+
+#ja {
+    margin-bottom: 420px;
+    margin-left: 15px;
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 1.1 rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #e7eef1;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, green, rgb(197, 251, 194));
+    border-image-slice: 0.5;
+    color: green;
+    outline: none;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#ja:hover {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, green, rgb(197, 251, 194));
+    border-image-slice: 1;
+    background-size: 100%;
+    background-image: linear-gradient(to top right, green, rgb(197, 251, 194));
+    color: white;
+}
+
+#nein {
+    margin-bottom: 420px;
+    margin-left: 15px;
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 1.1 rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #e7eef1;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, red, rgb(248, 195, 195));
+    border-image-slice: 0.5;
+    color: red;
+    outline: none;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#nein:hover {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, red, rgb(248, 195, 195));
+    border-image-slice: 1;
+    background-size: 100%;
+    background-image: linear-gradient(to top right, red, rgb(248, 195, 195));
+    color: white;
+}
+
 
