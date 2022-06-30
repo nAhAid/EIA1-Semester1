@@ -200,9 +200,10 @@ function wortGenerator(): void {
 
     }
 
-    //for-Schleife um erstellte Buttons in zufääliger Reihenfolge im HTML anzeigen zu
+    //for-Schleife um erstellte Buttons in zufälliger Reihenfolge im HTML anzeigen zu
     let ul: HTMLElement = document.querySelector("#buttons");
     for (let i: number = ul.children.length; i >= 0; i--) {
+        //hängt zufälliges Kind-Element "hinten" an die "Liste" ran
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
 
@@ -221,7 +222,6 @@ function checkPunkte(): void {
 function checkList(): void {
     let activeButton: HTMLElement = document.querySelector("button:hover");
     let activeID: string = activeButton.id.slice(-1);
-    //let content: string = document.getElementById("button" + satzProgress).innerText;
 
 
     if (parseInt(activeID) == satzProgress) {
@@ -253,13 +253,13 @@ function clear(): void {
 
 function ausgabeSatz(): void {
 
-    if (schwierigkeit >= satzCount) {
+    if (schwierigkeit > satzCount) {
         clear();
         satzGenerator(language);
         wortGenerator();
     }
 
-    else if (schwierigkeit < satzCount) {
+    else if (schwierigkeit <= satzCount) {
         window.location.href = "bestanden.html?lang=" + langLern + "&points=" + punkte;
     }
 
@@ -273,7 +273,7 @@ function checkSatz(): void {
         checkList();
     }
 
-    else if (satzProgress >= currentSentence.length) {
+    if (satzProgress >= currentSentence.length) {
         satzCount++;
         ausgabeSatz();
         satzProgress = 0;
