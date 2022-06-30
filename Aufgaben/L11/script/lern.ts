@@ -229,7 +229,7 @@ function wortGenerator(): void {
     //Zahl wird zufällig, im Rahmen der fakeSprache.length, festgelegt
     let zalh: number = 1;
     zahl = Math.random() * fakeSprache.length;
-    zahl = Math.round(zahl);
+    zahl = Math.floor(zahl);
     //Zufalls "zahl" sorgt für zufälliges auftauchen der Fake-Wörter
     let troll: string = fakeSprache[zahl];
 

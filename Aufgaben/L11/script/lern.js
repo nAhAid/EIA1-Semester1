@@ -167,7 +167,7 @@ function wortGenerator() {
     //Zahl wird zufällig, im Rahmen der fakeSprache.length, festgelegt
     let zalh = 1;
     zahl = Math.random() * fakeSprache.length;
-    zahl = Math.round(zahl);
+    zahl = Math.floor(zahl);
     //Zufalls "zahl" sorgt für zufälliges auftauchen der Fake-Wörter
     let troll = fakeSprache[zahl];
     //Generiert einen Button für die Fake-Wörter, Id so gewählt, dass Funktion "checkList" in else-Anweisung springt
