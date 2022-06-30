@@ -2,6 +2,7 @@
 let queryParamsBestanden: URLSearchParams = new URLSearchParams(window.location.search);
 //In Zeile vier werden die abgerufenen Parameter in der Variable "lang" abgespeichert
 let langBestanden: string = queryParamsBestanden.get("lang");
+let punkteBestanden: string = queryParamsBestanden.get("points");
 
 if (langBestanden == "es") {
     sprache = "Spanisch";
@@ -14,6 +15,7 @@ else if (langBestanden == "ua") {
 //Navigation zwischen HTML Dokumenten
 //if-Bedingung prüft, auf welchem HTML-Dokument der Browser gerade ist
 if (window.location.href.includes("bestanden.html")) {
+    document.querySelector("#ergebnis").innerHTML = punkteBestanden;
     document.querySelector("#schwierigkeit").addEventListener("click", () => {
 
         //In der URL werden zusätzliche Parameter mitgegeben. Eingeleitet durch "?". Parameter "lang" mit wert "es"

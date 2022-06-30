@@ -259,7 +259,7 @@ function ausgabeSatz(): void {
     }
 
     else {
-        window.location.href = "bestanden.html?points=" + punkte;
+        window.location.href = "bestanden.html?lang=" + langLern + "&points =" + punkte;
     }
 
 
