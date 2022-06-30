@@ -52,8 +52,68 @@ footer p {
 
 h1 {
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 40px;
+    background: linear-gradient(to right, white 0%, yellow 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .score {
     text-align: center;
 }
+
+#spanisch {
+    margin-left: 15px;
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 1.1 rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #e7eef1;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, red, yellow);
+    border-image-slice: 0.5;
+    color: red;
+    outline: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+}
+
+#spanisch:hover {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, red, yellow);
+    border-image-slice: 1;
+    background-size: 100%;
+    background-image: linear-gradient(to top right, red, yellow);
+    color: white;
+}
+
+#ukrainisch {
+    margin-right: 15px;
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 1.1 rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #e7eef1;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, blue, yellow);
+    border-image-slice: 0.5;
+    color: blue;
+    outline: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#ukrainisch:hover {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, blue, yellow);
+    border-image-slice: 1;
+    background-size: 100%;
+    background-image: linear-gradient(to top right, blue, yellow);
+    color: white;
+}
+
