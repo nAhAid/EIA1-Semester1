@@ -81,6 +81,7 @@ let sammlung = [
         ukrainisch: ["я", "залізна", "людина"]
     }
 ];
+//Liste an Objekten für Fake wörter, um ggf. ohne großen Aufwand weiter hinzufügen zu können.
 let fakeSammlung = [
     {
         spanisch: ["Queso", "Embutido", "papas fritas", "Cazuela", "madre", "país"],
@@ -109,6 +110,7 @@ let currentSentence = [];
 let punkte = 0;
 //Variable um CSS der geklickten Buttons zu ändern
 let style = false;
+//Variable um auf Liste für Fake-Wörte zuzugreifen.
 let fakeSprache = [];
 //Funktion zum "mischen" von Inhalten der übergebenen Liste
 function shuffleList(list) {
@@ -128,6 +130,7 @@ else if (langLern == "ua") {
     spracheLern = "Ukrainisch";
     language = "ua";
 }
+//ausgewählte Sprache wird ins HTML geschrieben.
 document.querySelector("h1").innerHTML = spracheLern;
 document.querySelector(".lang").innerHTML = spracheLern;
 function satzGenerator(fremdsprache) {
@@ -144,33 +147,40 @@ function satzGenerator(fremdsprache) {
     }
     //Variable "currentSentence" wird Satz in ausgewählter Sprache übergeben
     currentSentence = sprache;
+    //for-Schleife, die über das Array loopt, welches den deutschen Satz enthält, und dabei die einzelnen Elemente ins HTML schreibt.
     for (let index = 0; index < satz.deutsch.length; index++) {
         document.querySelector("#satz").innerHTML += satz.deutsch[index] + " ";
     }
 }
 function wortGenerator() {
+    //for-Schleife, die solange über das curretnSentence-Array loopt bis jedes Element einen eigenen Button hat. Jeder Button wird mit einer fortlaufenden Id belegt. Zuweisung der CSS-Eigenschaft "false"
     for (let index = 0; index < currentSentence.length; index++) {
         document.querySelector("#buttons").innerHTML += "<button id=\"button" + index + "\" onClick = \"checkSatz()\" class=\"" + style + "\">" + currentSentence[index] + "</button>";
     }
+    //Zugriff auf Objekt-Liste je nach ausgewählter Sprache
     if (langLern == "es") {
         fakeSprache = fakeSammlung[0].spanisch;
     }
     else if (langLern == "ua") {
         fakeSprache = fakeSammlung[0].ukrainisch;
     }
+    //Zahl wird zufällig, im Rahmen der fakeSprache.length, festgelegt
     let zalh = 1;
     zahl = Math.random() * fakeSprache.length;
     zahl = Math.round(zahl);
-    console.log(zahl);
+    //Zufalls "zahl" sorgt für zufälliges auftauchen der Fake-Wörter
     let troll = fakeSprache[zahl];
+    //Generiert einen Button für die Fake-Wörter, Id so gewählt, dass Funktion "checkList" in else-Anweisung springt
     document.querySelector("#buttons").innerHTML += "<button id=\"buttonX\" onClick = \"checkSatz()\" class=\"" + style + "\">" + troll + "</button>";
-    //for-Schleife um erstellte Buttons in zufälliger Reihenfolge im HTML anzeigen zu
+    //Variable, vom Typ HTML-Element, um darüber auf die child-Elemente zugreifen zu können.
     let ul = document.querySelector("#buttons");
+    //for-Schleife um erstellte Buttons in zufälliger Reihenfolge im HTML anzeigen zu
     for (let i = ul.children.length; i >= 0; i--) {
         //hängt zufälliges Kind-Element "hinten" an die "Liste" ran
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
 }
+//Funktion prüft, ob Punktestand kleiner Null ist. Wenn ja wird auf "failed.html" geleitet
 function checkPunkte() {
     if (punkte < 0) {
         window.location.href = "failed.html?lang=" + langLern + "&diff=" + diffLern;
@@ -180,46 +190,73 @@ function checkPunkte() {
     }
 }
 function checkList() {
+    //activeButton speichert den Button, über den gehovert wird => Annahme: Maus braucht länger zum Button "verlassen", als TS um Funktion "checkList" auszuführen
     let activeButton = document.querySelector("button:hover");
+    //activeID speichert die letzte Stelle der Id, von "activeButton". Mit "slice(-1)" quasi "abgeschnitten"
     let activeID = activeButton.id.slice(-1);
+    //if-Bedingung prüft ob die activeID dem "satzProgress" entspricht, "satzProgress" ist anfangs auf Null gesetzt. => Erstes array-Element immer = 0, erste Zahl von generiertem Button daher immer gleich Null.
     if (parseInt(activeID) == satzProgress) {
+        //CSS: Entfernt class= false
         document.querySelector("button:hover").classList.remove(String(style));
+        //Boolean "style" wird umgedreht, also style = true
         style = !style;
+        //CSS: Fügt neue class = true hinzu
         document.querySelector("button:hover").classList.add(String(style));
+        //Boolean "style" wird wieder umgedreht, um beim nächsten Click wieder von vorne anfangen zu können
         style = !style;
+        //Variable zum Punkte Zählen, wird um "+1" hochgezählt.
         punkte++;
+        //Neuer Üunktestand wird ins HTML geschrieben
         document.querySelector("#points").innerHTML = String(punkte) + " ";
+        //Inhalt des geklickten Buttons wird indirekt ins HTML geschrieben:
+        //satzProgress = Stelle im aktuellen Satz-Array, durch "currentSentence[satzProgress]" wird auf das ursrpüngliche Element zugegriffen
         document.querySelector("#ergebnis").innerHTML += currentSentence[satzProgress] + " ";
+        //Variable "satzProgress" wird um "+1" hochgezählt. Bsp.: von 0 auf 1. Dadurch immer an aktueller Stelle vom Satz.
         satzProgress++;
     }
+    //else-FUnktionsblock immer dann, wenn if-Bedingung nicht zutriffft
     else {
+        //Variable zum zählen der Punkte wird reduziert
         punkte--;
+        //Neuer Punktestand ins HMTL
         document.querySelector("#points").innerHTML = String(punkte) + " ";
+        //Funktionsaufruf: Funktion prüft ob Punktestand < 0 oder nicht
         checkPunkte();
+        //alert für User, das Wort falsch war.
         alert("Leider Falsch");
     }
 }
+//Funktion cleared HTML, da "satzGenerator" und "wortGenerator", nur hinzufügen, und nicht ersetzen.
 function clear() {
     document.querySelector("#satz").innerHTML = "";
     document.querySelector("#buttons").innerHTML = "";
     document.querySelector("#ergebnis").innerHTML = "";
 }
+//"ausgabeSatz" steuert "schreiben" der Sätze und navigieren zur "bestanden.hmtl"
 function ausgabeSatz() {
+    //prüft, ob nötige Anzahl an Sätzen für jeweilige Schwierigkeitsstufe erreicht wurde oder (noch) nicht
+    //Ruft Funktionen in richtiger Reihenfolge auf, um neuen Satz mit Buttons ausgeben zu lassen.
     if (schwierigkeit > satzCount) {
         clear();
         satzGenerator(language);
         wortGenerator();
     }
+    // leitet  weiter zur "bestanden.html"
     else if (schwierigkeit <= satzCount) {
         window.location.href = "bestanden.html?lang=" + langLern + "&points=" + punkte;
     }
 }
+//Funktionsaufruf zu Beginn, um zum ersten Mal einen Satz zu laden
 ausgabeSatz();
+//Funktion die beim Click auf einen Button aufgerufen wird.
 function checkSatz() {
+    //if-Bedingung trifft zu, wenn geclicktes Wort noch nicht das letzte war
     if (satzProgress < currentSentence.length) {
         checkList();
     }
+    //if-Bedingung trifft zu, wenn geclicktes Wort das letzte war.
     if (satzProgress >= currentSentence.length) {
+        checkList();
         satzCount++;
         ausgabeSatz();
         satzProgress = 0;
