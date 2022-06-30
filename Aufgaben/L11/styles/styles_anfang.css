@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     height: 100%;
 }
 
@@ -31,9 +30,6 @@ main {
     height: 100%;
 }
 
-.center div {
-    align-self: flex-start;
-}
 
 
 footer {
@@ -52,7 +48,7 @@ footer p {
 
 h1 {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 0px;
     font-family: 'Source Code Pro', monospace;
     font-size: 40px;
@@ -66,6 +62,7 @@ h1 {
 }
 
 #spanisch {
+    margin-bottom: 120px;
     margin-left: 15px;
     z-index: 1;
     padding: 10px 20px;
@@ -93,6 +90,7 @@ h1 {
 }
 
 #ukrainisch {
+    margin-bottom: 120px;
     margin-right: 15px;
     z-index: 1;
     padding: 10px 20px;
@@ -115,5 +113,44 @@ h1 {
     background-size: 100%;
     background-image: linear-gradient(to top right, blue, yellow);
     color: white;
+}
+
+.diff {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 380px;
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 1.1 rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: rgb(212, 211, 211);
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, white, yellow);
+    border-image-slice: 0.5;
+    color: black;
+    outline: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.diff:hover {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to top right, white, yellow);
+    border-image-slice: 1;
+    background-size: 100%;
+    background-image: linear-gradient(to top right, white, yellow);
+    color: black;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: center;
+}
+
+.diffSelect {
+    margin-bottom: 20px;
+    margin-top: 70px;
 }
 
